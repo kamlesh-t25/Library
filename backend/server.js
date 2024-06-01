@@ -1,0 +1,26 @@
+import express from 'express';
+import cors from 'cors';
+import { connectDB } from './config/db.js';
+import userRouter from './controllers/userController.js';
+
+const PORT=4000;
+const app=express();
+
+//middleware
+app.use(express.json());
+app.use(cors());
+
+
+connectDB();
+
+app.get('/',(req,res)=>{
+    res.send("Api working");
+})
+
+
+app.use("library/user",userRouter);
+
+
+app.listen(PORT,()=>{
+    console.log(`Server is running at Port :${PORT}`);
+})

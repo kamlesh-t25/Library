@@ -5,11 +5,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home.jsx';
 import PlaceRequest from './Pages/PlaceRequest/PlaceRequest';
 import Navbar from './Components/Navbar/Navbar.jsx'
+import Footer from './Components/Footer/Footer.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
+  <>
     <div className='app-body'>
       <Navbar/>
       <Router>
@@ -21,6 +23,8 @@ function App() {
         </div>
       </Router>
     </div>
+    <Footer/>
+  </>
   );
 }
 
