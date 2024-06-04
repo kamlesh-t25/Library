@@ -1,5 +1,11 @@
 import express from 'express';
 import cors from 'cors';
+// require('dotenv').config();
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+
 import { connectDB } from './config/db.js';
 import userRouter from './controllers/userController.js';
 
@@ -18,7 +24,7 @@ app.get('/',(req,res)=>{
 })
 
 
-app.use("library/user",userRouter);
+app.use("/library/user",userRouter);
 
 
 app.listen(PORT,()=>{
