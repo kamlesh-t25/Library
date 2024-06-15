@@ -87,3 +87,28 @@
     }
 
 }
+.logout-popup-list{
+  position: relative;
+  /* border: 3px solid rebeccapurple; */
+}
+
+.logout-orders{
+    position: absolute;
+    right: 0;
+    display: none;
+    border: 1px solid red;
+}
+
+.logout-orders p{
+  cursor: pointer;
+}
+
+.logout-popup-list:hover .logout-orders{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1;
+    background-color: antiquewhite;
+    padding: 15px 25px;
+    border-radius: 6px;
+}

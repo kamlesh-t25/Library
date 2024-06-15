@@ -57,7 +57,7 @@ const registerUser=async(req,res)=>{
         console.log('Password:', process.env.PASSWORD);
         console.log("OTP",otp);
 
-        await transporter.sendMail(mailOptions, (error, info) => {
+        transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
                 console.log('Error:', error); // Log the error
                 return res.json({success: false, message: "Error in sending mail", error: error.message});
@@ -70,13 +70,12 @@ const registerUser=async(req,res)=>{
 
 const verifyOtp=async(req,res)=>{
     const {name,email,otp}=req.body;
-    if(otpStorage[email]=== otp){
+    if(otpStorage[email]== otp){
         otpStorage[email]='verified';
         res.json({success:true,message:"OTP verified"});
         // res.status(200).send('OTP verified');
     }else{
         res.json({success:false,message:"OTP not verified"});
-        res.status(400).send('Invalid OTP');
     }
 }
 
@@ -104,7 +103,7 @@ const setPassword=async(req,res)=>{
         res.json({success:true,token});
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"});
+        res.json({success:false,message:"Error in saving User"});
     }
 }
 
@@ -126,7 +125,7 @@ const loginUser=async(req,res)=>{
         res.json({success:true,token});
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"});
+        res.json({success:false,message:"Error in Login!"});
     }
 }
 

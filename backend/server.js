@@ -8,6 +8,7 @@ dotenv.config();
 
 import { connectDB } from './config/db.js';
 import userRouter from './controllers/userController.js';
+import bookRouter from './controllers/bookController.js';
 
 const PORT=4000;
 const app=express();
@@ -25,7 +26,7 @@ app.get('/',(req,res)=>{
 
 
 app.use("/library/user",userRouter);
-
+app.use('/library/books',bookRouter);
 
 app.listen(PORT,()=>{
     console.log(`Server is running at Port :${PORT}`);

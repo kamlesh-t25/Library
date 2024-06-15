@@ -3,3 +3,9 @@ hr{
     height: 2px;
     background-color: black;
 }
+
+.home-container{
+    width: 95%;
+    /* padding: 15px; */
+    margin: auto;
+}

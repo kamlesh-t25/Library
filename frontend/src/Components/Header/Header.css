@@ -1,7 +1,8 @@
 .header{
     width: 100%;
     height: 80vh;
-    background: url('../../assets/library_logo.jpg') no-repeat;
+    background: url('https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif') no-repeat;
+
     background-size: cover;
     /* background-repeat: no-repeat; */
     display: flex;

@@ -1,4 +1,6 @@
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 *{
     font-family: 'Poppins', sans-serif;
 }
@@ -60,12 +62,12 @@ i{
   width: 330px;
   box-sizing: border-box;
 }
-/* img{
+img{
     width: 35px;
     position: absolute;
     top: 30px;
     left: 30px;
-} */
+}
 .input-box header{
     font-weight: 700;
     text-align: center;
@@ -140,12 +142,12 @@ span a:hover{
     .side-image{
         display: none;
     }
-    /* img{
+    img{
         width: 35px;
         position: absolute;
         top: 20px;
         left: 47%;
-    } */
+    }
     .text{
         position: absolute;
         top: 70%;
