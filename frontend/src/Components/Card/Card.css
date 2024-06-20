@@ -1,6 +1,7 @@
 .cardStyle{
     width: 100%;
     display: inline;
+    height: 250px;
     /* border: 2px solid blue; */
     align-items: center;
     /* margin: auto; */

@@ -6,3 +6,11 @@
     gap: 30px;
     row-gap: 40px;
 }
+
+.category-description h2{
+    /* color: red; */
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 24px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

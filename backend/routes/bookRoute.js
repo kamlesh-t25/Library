@@ -9,11 +9,14 @@ const addBook=async(req,res)=>{
 
     
     //if book already exist
-
+    const foundBook=await bookModel.findOne({title});
+    if(foundBook){
+        return res.json({success:false,message:"Book already exists!"})
+    }
 
     try {
         await newBook.save();
-        res.json({success:true,message:"Food Added"});
+        res.json({success:true,message:"Bood Added"});
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Error"});
@@ -24,6 +27,7 @@ const addBook=async(req,res)=>{
 const listBooks=async(req,res)=>{
     try {
         const books=await bookModel.find({});
+        // console.log("books: -"+books);
         res.json({success:true,data:books});
     } catch (error) {
         console.log(error);

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 // import './Login.css';
-
-const Login = () => {
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+const Login = ({URL}) => {
+    const navigate=useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const handelSubmit = async function(e){

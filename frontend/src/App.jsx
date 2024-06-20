@@ -77,6 +77,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Orders from './Pages/Orders/Orders.jsx';
 import LoadingPage from './Components/LoadingPage/LoadingPage.jsx';
+import BooksPage from './Pages/BooksPage/BooksPage.jsx';
+import Cart from './Pages/Cart/Cart.jsx';
 
 function App() {
   const { URL } = useContext(StoreContext);
@@ -105,6 +107,8 @@ function App() {
               <Route path='/login' element={<Login URL={URL} />} />
               <Route path='/home' element={<Home />} />
               <Route path='/orders' element={<Orders/>} />
+              <Route path='/cart' element={<Cart/>} />
+              <Route path='/home/:categoryName' element={<BooksPage/>} />
             </Routes>
           </div>
         </Router>

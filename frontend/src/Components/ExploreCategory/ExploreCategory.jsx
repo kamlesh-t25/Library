@@ -8,14 +8,13 @@ const ExploreCategory = ({category_list,category,setCategory}) => {
   return (
 <div className="explose-category-container">
     <div className="category-description">
-        <h2>Select category</h2>
+        <h2><b><u>Select category</u></b> : -</h2>
         <div className="card-display-section">
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
+          {
+            category_list.map((element,index)=>{
+              return (<Card name={element.category_name} />)
+            })
+          }
 
         </div>
 

@@ -5,11 +5,10 @@ import './BookDisplay.css'
 const BookDisplay = ({category}) => {
   return (
     <div>
-      
+      <h2>{category}</h2>
     </div>
   )
 }
-import './BookDisplay.css'
 
 
 export default BookDisplay

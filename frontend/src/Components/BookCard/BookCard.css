@@ -1,0 +1,13 @@
+.bookCard{
+    border: 2px solid red;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookCard button{
+    border: 2px solid blue;
+    padding: 5px 8px;
+}
