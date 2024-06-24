@@ -15,6 +15,10 @@ const Navbar = () => {
     navigate('/');
   }
 
+  const ordersClickHandler=()=>{
+    navigate("/orders");
+  }
+
 
   return (
   <div className='navbar+'>
@@ -28,14 +32,14 @@ const Navbar = () => {
       <div className="icons">
       <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}>Home</li>
       <li className={activeLink=='books' ?"active":''}  onClick={()=>handleLinkClick('books')}>Books</li>
-      <li className={activeLink=='contact' ?"active":''}  onClick={()=>handleLinkClick('contact')}>Contact</li>
+      <li className={activeLink=='contact' ?"active":''}  onClick={()=>handleLinkClick('contact')}><a href='#footer'>Contact</a></li>
       <a href="#" className='icon-size' onClick={()=>navigate('/cart')}><ion-icon  name="cart-outline"></ion-icon></a>
       <div className="logout-popup-list">
         <a href="#" className='icon-size'><ion-icon  name="person-outline"></ion-icon></a>
         <div className="logout-orders">
           <p onClick={logoutHandler}>LogOut</p>
           <br />
-          <p>Orders</p>
+          <p onClick={ordersClickHandler}>Orders</p>
         </div>
       </div>
       </div>

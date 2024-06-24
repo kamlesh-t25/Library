@@ -1,15 +1,17 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../Context/StoreContext'
+import axios from 'axios';
 
 const CartBookCard = (props) => {
-  const {removeFromCart}=useContext(StoreContext);
+  const {removeFromCart,URL,requestBook}=useContext(StoreContext);
 
   const handleRemoveCart=(itemId)=>{
     removeFromCart(itemId);
     console.log("remove");
   }
-  const handleCartRequest=(itemId)=>{
+  const handleCartRequest=async(itemId)=>{
     console.log("Request : -"+itemId);
+    requestBook(itemId);
   }
 
   return (

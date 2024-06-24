@@ -39,9 +39,10 @@
     list-style: none;
     font-size: 20px;
     margin: 15px;
+    cursor: pointer;
   }
   
-  .icons a{
+  .icon-size{
     margin-left: 15px;
     font-size: 2em;
     color: #333;

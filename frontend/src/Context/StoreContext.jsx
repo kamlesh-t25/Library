@@ -13,7 +13,7 @@ const StoreContextProvider=(props)=>{
     const [subCategory,setSubCategory]=useState('');
     const [booksList,setBooksList]=useState([]);
     const [cartData,setCartData]=useState({});
-
+    const [orders,setOrders]=useState([]);
 
     
 
@@ -40,6 +40,7 @@ const StoreContextProvider=(props)=>{
 
     useEffect(()=>{
         getCartData();
+        // getUserOrder();
     },[token])
 
     const getBooksList=async()=>{
@@ -97,7 +98,38 @@ const StoreContextProvider=(props)=>{
 
     useEffect(()=>{
         console.log("CartData updated : -"+cartData);
+        getUserOrder();
     },[cartData])
+
+
+    //functions to manage orders
+    const requestBook=async(bookId)=>{
+        const response=await axios.post(URL+"/library/orders/requestBook",{bookId},{headers:{token}});
+        console.log(response);
+
+        const response2=await axios.post(URL+"/library/cart/remove",{itemId:bookId},{headers:{token}});
+        getCartData();
+    }
+
+    const changeStatus=async(bookId)=>{
+        const response=await axios.post(URL+"/library/orders/updateStatus",{bookId},{headers:{token}});
+        console.log(response);
+
+    }
+
+    const getUserOrder=async()=>{
+        const response=await axios.post(URL+"/library/orders/userOrder",{},{headers:{token}});
+        setOrders(response.data.data);
+        console.log("Set orders :"+ orders);
+        console.log("User order : -"+JSON.stringify(response.data.data, null, 2));
+    }
+
+    useEffect(() => {
+        if (token) {
+          getUserOrder();
+        }
+      }, []);
+    
 
     //only once for adding data to database once
     // useEffect(() => {
@@ -124,7 +156,9 @@ const StoreContextProvider=(props)=>{
         subCategory,setSubCategory,
         booksList,
         addToCart,removeFromCart,getCartData,
-        cartData
+        cartData,
+        requestBook,changeStatus,getUserOrder,orders
+
 
     }
 

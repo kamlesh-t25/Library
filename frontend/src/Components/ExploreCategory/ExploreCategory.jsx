@@ -12,7 +12,7 @@ const ExploreCategory = ({category_list,category,setCategory}) => {
         <div className="card-display-section">
           {
             category_list.map((element,index)=>{
-              return (<Card name={element.category_name} />)
+              return (<Card key={index} name={element.category_name} />)
             })
           }
 
