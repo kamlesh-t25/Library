@@ -9,6 +9,8 @@ const Card = (props) => {
         // localStorage.setItem('bookData', JSON.stringify(dataofcart));
         // console.log(dataofcart);
         // console.log("Added to cart.");
+        document.documentElement.style.fontSize = '62.5%';
+        document.documentElement.style.overflowX = 'hidden';
         navigate(`/home/${categoryName}`);
             
     }

@@ -9,7 +9,9 @@ import Navbar from '../../Components/Navbar/Navbar.jsx';
 import Card from '../../Components/Card/Card.jsx';
 const Home = () => {
   const [category,setCategory]=useState("All");
-
+  document.documentElement.style.fontSize = '';
+  document.documentElement.style.overflowX = '';
+  
   return (
 <div className="home-home">
   
