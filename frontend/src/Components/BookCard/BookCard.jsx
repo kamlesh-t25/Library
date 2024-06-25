@@ -14,6 +14,7 @@ const BookCard = (props) => {
   return (
     <div className='bookCard'>
       <h2>{props.title}</h2>
+      <p>{props.author}</p>
       <button onClick={()=>handleCart(props.id)}>Add to Cart</button>
     </div>
   )
