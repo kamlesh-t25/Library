@@ -1,7 +1,7 @@
 import userModel from "../models/userModel.js";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();

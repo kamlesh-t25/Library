@@ -22,7 +22,10 @@ export const category_list=[
     },
     {
         category_name:"Business and Management",
-    }
+    },
+    {
+      category_name:"Programming and Software Development",
+  }
 ]
 
 export const Engineering=[

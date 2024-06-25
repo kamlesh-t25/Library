@@ -24,7 +24,7 @@ const Orders = () => {
           <div key={index} id={element._id} className='bookCard'>
               <h2>{element.title}</h2>
             <div>
-            <button onClick={()=>handleRemoveCart(element._id)}>Cancel Order</button>
+            {/* <button onClick={()=>handleRemoveCart(element._id)}>Cancel Order</button> */}
             <button>{orderItem.status}</button>
             </div>
           </div>

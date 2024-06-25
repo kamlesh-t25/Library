@@ -1,13 +1,33 @@
-.bookCard{
-    border: 2px solid red;
-    padding: 10px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.cardStyle{
+    /* width: 30vw; */
+    min-height: 25vh;
+    /* height:max-content; */
+    /* height: 40%;
+    width: 40%;
+    border-radius: 50%; */
+    /* overflow: scroll; */
+    /* border-radius: 50%; */
+    /* box-shadow:black 10px 10px 10px; */
+    filter: drop-shadow(1px 1px 20px black);
+}
+@media (max-width:650px){
+    .cardStyle{
+        width: 100%;
+    }
+}
+.cardStyle:hover {
+    transform: scale(1.05);
+  }
+.firstElement{
+    /* overflow: scroll; */
+    height: auto;
+    font-size:80px;
+    filter: drop-shadow(1px 1px 20px rgb(184, 11, 104));
+}
+.propName{
+    font-size:21px;
 }
 
-.bookCard button{
-    border: 2px solid blue;
-    padding: 5px 8px;
+.thirdElement{
+    height: 20%;
 }
