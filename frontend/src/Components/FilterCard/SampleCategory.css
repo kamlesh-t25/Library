@@ -4,9 +4,9 @@
    font-family: 'Nunito', sans-serif;
    margin:0; padding:0;
    box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-   transition: all .2s linear;
+   /* outline: none; border:none; */
+   /* text-decoration: none; */
+   /* transition: all .2s linear;  **************************** **     */
    /* text-transform: capitalize; */
 }
 
@@ -24,6 +24,12 @@
    /* grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); */
    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
    gap:2rem;
+   padding: 10px;
+   overflow-x: scroll;
+}
+
+.container .products-container::-webkit-scrollbar{
+   display: none;
 }
 
 .container .products-container .product{
@@ -174,7 +180,7 @@
 @media (max-width:991px){
 
    html{
-      font-size: 55%;
+      /* font-size: 55%; */
    }
 
 }
@@ -190,7 +196,7 @@
 @media (max-width:450px){
 
    html{
-      font-size: 50%;
+      /* font-size: 50%; */
    }
 
 }

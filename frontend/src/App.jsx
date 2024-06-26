@@ -80,6 +80,10 @@ import LoadingPage from './Components/LoadingPage/LoadingPage.jsx';
 import BooksPage from './Pages/BooksPage/BooksPage.jsx';
 import Cart from './Pages/Cart/Cart.jsx';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
 function App() {
   const { URL } = useContext(StoreContext);
   const [loading,setLoading]=useState(false);

@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
+import { StoreContext } from '../../Context/StoreContext'
 
 
 const Header = () => {
+  const {userName}=useContext(StoreContext);
   return (
     <div className='header'>
       <div className="header-content">
         <h2 className='heading'>Welcome</h2>
-        <p className='content'>xxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p className='content'>Hello {userName ? userName : "Loading..."}</p>
       </div>
 
       <form action="/">

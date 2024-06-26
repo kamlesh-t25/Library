@@ -16,8 +16,8 @@ const BooksPage = () => {
   const navigate=useNavigate();
   const handelClick = ()=>{
       navigate('/home');
-      document.documentElement.style.fontSize = '';
-      document.documentElement.style.overflowX = '';
+      // document.documentElement.style.fontSize = '';
+      // document.documentElement.style.overflowX = '';
   }
   return (
   <div className="books-display">

@@ -129,4 +129,16 @@ const loginUser=async(req,res)=>{
     }
 }
 
-export {registerUser,loginUser,verifyOtp,setPassword};
+const getUserDetails=async(req,res)=>{
+
+    try {
+        const user=await userModel.findOne({_id:req.body.userId});
+        console.log(user);
+        res.json({success:true,data:user.name});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"});
+    }
+}
+
+export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails};

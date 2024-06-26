@@ -23,7 +23,7 @@ const BookCard = (props) => {
           <br></br>
           <div className='secondElement text-center align-middle'><p className="card-text text-green-600">{props.description}</p></div>
         </div>
-        <h6 class="card-subtitle mb-2 text-body-secondary">Author: {props.author}</h6>
+        <h6 className="card-subtitle mb-2 text-body-secondary">Author: {props.author}</h6>
         {/* <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Availible: {props.count} copies</h6> */}
         <div className='thirdElement align-middle text-center'>
           <button onClick={()=>handleCart(props.id)} className="btn btn-outline-secondary justify-end items-end bottom-0">

@@ -1,10 +1,15 @@
 /* Navbar.css */
+.navbar-container{
+  padding: 0px 20px;
+  /* background-color: green; */
+}
+
 .navbar {
     /* position: fixed; */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    /* padding: 5px 50px; */
     /* background-color: #f8f9fa; */
   }
   

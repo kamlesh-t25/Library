@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const logoutHandler=()=>{
     localStorage.removeItem('token');
-    navigate('/');
+    navigate('/login');
   }
 
   const ordersClickHandler=()=>{
@@ -21,11 +21,11 @@ const Navbar = () => {
 
 
   return (
-  <div className='navbar+'>
+  <div className='navbar-container'>
     <div className='navbar'>
       <div className="logo">
         {/* <a href="#" className='icon-size'><ion-icon name="book-outline"></ion-icon><span>eLibrary</span></a> */}
-        <a href="#" className='icon-size'><span>eLibrary</span></a>
+        <a href="#" className='icon-size' onClick={()=>navigate("/home")}><span>eLibrary</span></a>
 
       </div>
 
@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="logout-orders">
           <p onClick={logoutHandler}>LogOut</p>
           <br />
-          <p onClick={ordersClickHandler}>Orders</p>
+          <p onClick={()=>navigate("/orders")}>Orders</p>
         </div>
       </div>
       </div>

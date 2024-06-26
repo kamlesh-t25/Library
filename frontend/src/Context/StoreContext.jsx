@@ -5,7 +5,6 @@ import { books_data } from "../assets/assets";
 // import { food_list } from "../assets/assets";
 export const StoreContext=createContext(null);
 
-
 const StoreContextProvider=(props)=>{
     const URL="http://localhost:4000";
 
@@ -14,21 +13,29 @@ const StoreContextProvider=(props)=>{
     const [booksList,setBooksList]=useState([]);
     const [cartData,setCartData]=useState({});
     const [orders,setOrders]=useState([]);
+    const [userName,setUserName]=useState("");
+    const [weatherData,setWeatherData]=useState(false);
 
     
+
+    const getUserName=async()=>{
+        let response=await axios.post(URL+"/library/user/getUser",{},{headers:{token}});
+        console.log("User Data : -"+response.data.data);
+        setUserName(response.data.data);
+    }
 
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
             setToken(storedToken);
-            console.log("1111");
+            // getUserName();
         }
     }, []);
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
             setToken(storedToken);
-            console.log("1111");
+            getUserName();
         }
     }, [token]);
 
@@ -129,6 +136,34 @@ const StoreContextProvider=(props)=>{
           getUserOrder();
         }
       }, []);
+
+
+      //weather api
+      const getWeatherData=async()=>{
+        try {
+            const city="Dharwad";
+            const api_key="9706f9e6c7b105b01116287e836fde6c";
+            // const url=`https://api.openweathermap.org/data/2.5/weather?q=${import.meta.env.VITE_WEATHER_CITY_NAME}&appid=${import.meta.env.VITE_WEATHER_APP_API}`
+            const url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`;
+            const response =await fetch(url);
+            const data=await response.json();
+            console.log("Weather Data: ",data);
+            setWeatherData({
+                humidity:data.main.humidity,
+                windSpeed:data.wind.speed,
+                temperature:Math.floor(data.main.temp),
+                location:data.name,
+                icon:`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+
+            })
+        } catch (error) {
+            console.log(error);
+        }
+      }
+
+      useEffect(()=>{
+        getWeatherData();
+      },[])
     
 
     //only once for adding data to database once
@@ -152,7 +187,8 @@ const StoreContextProvider=(props)=>{
 
     const contextValue={
         URL,
-        token,setToken,
+        weatherData,
+        token,setToken,userName,
         subCategory,setSubCategory,
         booksList,
         addToCart,removeFromCart,getCartData,
