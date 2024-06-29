@@ -155,6 +155,9 @@ body.dark {
 }
 /* SIDEBAR */
 
+.dark #content{
+  background-color: #060714;
+}
 /* CONTENT */
 #content {
   position: relative;
