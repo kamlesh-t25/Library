@@ -4,7 +4,7 @@ import 'boxicons/css/boxicons.min.css';
 const Navbar = ({ toggleSidebar, isDarkMode, toggleDarkMode }) => {
   return (
     <nav>
-      <i className="bx bx-menu" onClick={toggleSidebar}></i>
+      {/* <i className="bx bx-menu" onClick={toggleSidebar}></i> */}
       <a href="#" className="nav-link">Categories</a>
       <form action="#">
         <div className="form-input">

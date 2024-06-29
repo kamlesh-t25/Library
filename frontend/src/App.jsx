@@ -105,9 +105,10 @@ function App() {
         <Router>
           <div className='app'>
             <Routes>
-              <Route path='/' element={<ProtectedRoute component={Register} URL={URL} />} />
+              <Route path='/' element={<ProtectedRoute component={Login} URL={URL} />} />
               <Route path='/verify-otp' element={<SendOtp URL={URL} />} />
               <Route path='/set-password' element={<SetPwd URL={URL} />} />
+              <Route path='/register' element={<Register URL={URL} />} />
               <Route path='/login' element={<Login URL={URL} />} />
               <Route path='/home' element={<Home />} />
               <Route path='/orders' element={<Orders/>} />

@@ -17,6 +17,9 @@
         width: 100%;
     }
 }
+.bookCard.outOfStock {
+    box-shadow: 0 0 10px red;
+  }
 .cardStyle:hover {
     transform: scale(1.05);
   }
