@@ -141,4 +141,15 @@ const getUserDetails=async(req,res)=>{
     }
 }
 
-export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails};
+const getUsers=async(req,res)=>{
+    try {
+        const user=await userModel.find({});
+        // console.log(user);
+        res.json({success:true,data:user});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error"});
+    }
+}
+
+export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails,getUsers};

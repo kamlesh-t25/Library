@@ -1,9 +1,82 @@
+.cart-navbar{
+    min-height: 150vh;
+}
+
 .cartContainer{
-    padding: 20px;
-    width: 80%;
-    margin: auto;
     display: grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(290px,1fr));
     gap: 20px;
     row-gap: 20px;
+    padding: 20px;
+    /* min-height: 80vh; */
+}
+
+.products-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.parentDiv{
+    width: 100%;
+    display: flex;
+    gap: 2%;
+    flex-wrap: wrap;
+}
+/* .cartContainer{
+    padding: 40px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    row-gap: 20px;
+} */
+.cardStyle{
+    justify-content: center;
+    align-items: center;
+
+}
+.preview .fa-times {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #444;
+}
+.fa-times{
+    height: 10%;
+}
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.preview h3{
+    font-size: larger;
+}
+
+
+.buttons .buy,.buttons .cart{
+    padding: 10px 15px;
+    border: 2px solid black;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.buttons .buy:hover,.buttons .cart:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width:500px){
+    .buttons{
+        flex-direction: column;
+    }
 }

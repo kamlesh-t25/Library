@@ -1,10 +1,12 @@
 import image_1 from './library_logo.jpg';
 import iitdh_logo from './iitdh-logo.png';
 import footer_image from './iitdh-footer.jpg';
+import header_image from './landing-page-eLibrary.jpg';
 
 export const assets={
     iitdh_logo,
-    footer_image
+    footer_image,
+    header_image
 }
 
 export const category_list=[

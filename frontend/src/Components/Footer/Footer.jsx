@@ -47,23 +47,22 @@ const Footer = () => {
             <img src={assets.iitdh_logo} alt="" />
             <p>Indian Institute of Technology Dharwad <br />
             CHIKKAMALLIGAWAD DHARWAD - 580007 , KARNATAKA</p>
-            <p><i class="bi bi-telephone-fill"> 0836 221 2839</i></p>
-            <p><i class="bi bi-envelope"> <a href="mailto:pro@iitdh.ac.in" className='email-link'> pro@iitdh.ac.in</a></i></p>
-            <p><i class="bi bi-globe-asia-australia"><a href="https://www.iitdh.ac.in" className='website-link' target='_blank'> www.iitdh.ac.in</a></i></p>
+            <p><i className="bi bi-telephone-fill"> 0836 221 2839</i></p>
+            <p><i className="bi bi-envelope"> <a href="mailto:pro@iitdh.ac.in" className='email-link'> pro@iitdh.ac.in</a></i></p>
+            <p><i className="bi bi-globe-asia-australia"><a href="https://www.iitdh.ac.in" className='website-link' target='_blank'> www.iitdh.ac.in</a></i></p>
         </div>
-        <div className="s-footer">
+        {/* <div className="s-footer">
         <p>aaaaaaaa</p>
-        <p>{Date}</p>
-        </div>
+        </div> */}
         <div className="t-footer">
           <div className="weather-icon-location">
             <img className='weather-icon' src={weatherData.icon} alt="" />
             <span className='weather-location'>{weatherData.location}</span>
           </div>
           <p>{formatTime(currentDateTime)}</p>
-          <p><i class="bi bi-thermometer-half"></i> Temp :{weatherData.temperature}</p>
-          <p><i class="bi bi-water"></i> Humidity : {weatherData.humidity}%</p>
-          <p><i class="bi bi-wind"></i> Wind : {weatherData.windSpeed} Km/h</p>
+          <p><i className="bi bi-thermometer-half"></i> Temp :{weatherData.temperature}</p>
+          <p><i className="bi bi-water"></i> Humidity : {weatherData.humidity}%</p>
+          <p><i className="bi bi-wind"></i> Wind : {weatherData.windSpeed} Km/h</p>
           
 
         </div>

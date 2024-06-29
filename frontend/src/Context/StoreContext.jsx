@@ -15,7 +15,7 @@ const StoreContextProvider=(props)=>{
     const [orders,setOrders]=useState([]);
     const [userName,setUserName]=useState("");
     const [weatherData,setWeatherData]=useState(false);
-
+    // const [users,setUsers]=useState([]);
     
 
     const getUserName=async()=>{
@@ -28,7 +28,7 @@ const StoreContextProvider=(props)=>{
         const storedToken = localStorage.getItem('token');
         if (storedToken) {
             setToken(storedToken);
-            // getUserName();
+            getUserName();
         }
     }, []);
     useEffect(() => {
@@ -113,13 +113,17 @@ const StoreContextProvider=(props)=>{
     const requestBook=async(bookId)=>{
         const response=await axios.post(URL+"/library/orders/requestBook",{bookId},{headers:{token}});
         console.log(response);
-
+        if(response.data.success){
+            toast.success(response.data.message);
+        }else{
+            toast.error(response.data.message);
+        }
         const response2=await axios.post(URL+"/library/cart/remove",{itemId:bookId},{headers:{token}});
         getCartData();
     }
 
-    const changeStatus=async(bookId)=>{
-        const response=await axios.post(URL+"/library/orders/updateStatus",{bookId},{headers:{token}});
+    const changeStatus=async(bookId,newStatus)=>{
+        const response=await axios.post(URL+"/library/orders/updateStatus",{bookId,newStatus},{headers:{token}});
         console.log(response);
 
     }

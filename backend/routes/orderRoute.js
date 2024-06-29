@@ -6,6 +6,15 @@ const requestBook=async(req,res)=>{
     try {
         let order=await orderModel.findOne({userId,"items.status":"Pending"});
 
+        if(order){
+            let isExist=order.items.find((i)=>i.bookId==bookId);
+            console.log("Order exist");
+            if(isExist){
+                console.log("111");
+                return res.json({success:false,message:"Book is already requested or approved !"})
+            }
+        }
+
         if(!order){
             order=new orderModel({userId,items:[{bookId}]});
         }else{
@@ -13,7 +22,7 @@ const requestBook=async(req,res)=>{
         }
 
         await order.save();
-        res.json({success:true,message:"Requested!"});
+        res.json({success:true,message:"Request accepted!"});
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Failed to request book"});
@@ -21,10 +30,10 @@ const requestBook=async(req,res)=>{
 }
 
 const changeStatus = async (req, res) => {
-    const { userId, bookId } = req.body;
+    const { userId, bookId,newStatus } = req.body;
     try {
         // Find the order document for the user
-        let order = await orderModel.findOne({ userId, "items.bookId": bookId, "items.status": "Pending" });
+        let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
             return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
@@ -33,7 +42,7 @@ const changeStatus = async (req, res) => {
         // Update the status of the specific book
         const item = order.items.find(item => item.bookId === bookId);
         if (item) {
-            item.status = "Approved";
+            item.status = newStatus;
         }
 
         // Save the updated order document
@@ -60,7 +69,7 @@ const getUserOrder=async(req,res)=>{
 
 const getOrders=async(req,res)=>{
     try {
-        let userOrder=await orderModel.findOne({});
+        let userOrder=await orderModel.find({});
         res.json({success:true,data:userOrder});
     } catch (error) {
         console.log(error);

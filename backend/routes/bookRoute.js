@@ -48,9 +48,10 @@ const deleteBook=async(req,res)=>{
 const updateBookCount = async (req, res) => {
     try {
       // Update the book count
+      const requestedBook=await bookModel.findOne({_id:req.body.id})
       const updatedBook = await bookModel.findByIdAndUpdate(
         req.body.id,
-        { count: req.body.count },
+        { count: requestedBook.count - 1 },
         { new: true } // Return the updated document
       );
   
@@ -60,7 +61,7 @@ const updateBookCount = async (req, res) => {
       }
   
       // Send the updated book as a response
-      res.json({ success: true, data: updatedBook });
+      res.json({ success: true, message: "Book count updated" });
     } catch (error) {
       console.error(error);
       res.status(500).json({ success: false, message: "Error" });

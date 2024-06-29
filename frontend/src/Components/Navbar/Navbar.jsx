@@ -21,17 +21,17 @@ const Navbar = () => {
 
 
   return (
-  <div className='navbar-container'>
+  <div className='navbar-container' id='navbar-container'>
     <div className='navbar'>
       <div className="logo">
         {/* <a href="#" className='icon-size'><ion-icon name="book-outline"></ion-icon><span>eLibrary</span></a> */}
-        <a href="#" className='icon-size' onClick={()=>navigate("/home")}><span>eLibrary</span></a>
+        <a href="#" className='icon-size' onClick={()=>navigate("/home")}><span className='logo-eLibrary'>eLibrary</span></a>
 
       </div>
 
       <div className="icons">
-      <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}>Home</li>
-      <li className={activeLink=='books' ?"active":''}  onClick={()=>handleLinkClick('books')}>Books</li>
+      <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}> <a href="#">Home</a> </li>
+      {/* <li className={activeLink=='books' ?"active":''}  onClick={()=>handleLinkClick('books')}>Books</li> */}
       <li className={activeLink=='contact' ?"active":''}  onClick={()=>handleLinkClick('contact')}><a href='#footer'>Contact</a></li>
       <a href="#" className='icon-size' onClick={()=>navigate('/cart')}><ion-icon  name="cart-outline"></ion-icon></a>
       <div className="logout-popup-list">

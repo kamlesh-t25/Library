@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const itemSchema = new mongoose.Schema({
     bookId: { type: String, required: true },
     status: { type: String, default: "Pending" }
-});
+},{timestamps:true});
 
 
 const orderSchema=new mongoose.Schema({

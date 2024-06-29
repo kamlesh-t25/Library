@@ -1,0 +1,320 @@
+/* Add your CSS styles here, including the ones you provided in your initial HTML structure. */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.app {
+    display: flex;
+}
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #2f323a;
+    transition: all 0.3s ease;
+    z-index: 99;
+}
+
+#sidebar.hide {
+    left: -100%;
+}
+
+#sidebar .brand {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+#sidebar .brand i {
+    font-size: 28px;
+    color: #fff;
+}
+
+#sidebar .brand .text {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 8px;
+    color: #fff;
+}
+
+#sidebar .side-menu.top li.active a {
+    background: #fff;
+    color: #000;
+}
+
+#sidebar .side-menu.top li a {
+    color: #b8b9c2;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+}
+
+#sidebar .side-menu.top li a i {
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+#sidebar .side-menu.top li a:hover {
+    background: #fff;
+    color: #000;
+}
+
+#sidebar .logout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    margin-left: 250px;
+    transition: all 0.3s ease;
+}
+
+.content.hide {
+    margin-left: 0;
+}
+
+nav {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav .form-input {
+    display: flex;
+    align-items: center;
+}
+
+nav .form-input input {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    outline: none;
+    background: #f0f0f0;
+}
+
+nav .form-input button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    outline: none;
+    background: #00b0ff;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+#switch-mode {
+    display: none;
+}
+
+.switch-mode {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.head-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.head-title .left {
+    display: flex;
+    align-items: center;
+}
+
+.head-title .left h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.head-title .left ul.breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0 16px;
+    display: flex;
+    align-items: center;
+}
+
+.head-title .left ul.breadcrumb li {
+    margin: 0 4px;
+}
+
+.head-title .left ul.breadcrumb li a {
+    color: #999;
+    font-size: 14px;
+}
+
+.head-title .left ul.breadcrumb li a.active {
+    color: #000;
+    font-weight: 600;
+}
+
+.box-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.box-info li {
+    width: 100%;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box-info li i {
+    font-size: 36px;
+    color: #00b0ff;
+}
+
+.box-info li .text h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.table-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table-data .order,
+.table-data .todo {
+    width: 48%;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table-data .order table,
+.table-data .todo table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-data .order table th,
+.table-data .order table td,
+.table-data .todo table th,
+.table-data .todo table td {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
+}
+
+.table-data .order table th {
+    background: #f9f9f9;
+}
+
+.table-data .order table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.status.completed {
+    background: #00b0ff;
+    color: #fff;
+}
+
+.status.pending {
+    background: #ff9800;
+    color: #fff;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list li {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-list li.not-completed {
+    background: #ff9800;
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+
+    #sidebar {
+        width: 250px;
+    }
+
+    #sidebar.hide {
+        left: -100%;
+    }
+
+    #sidebar .brand {
+        height: 56px;
+    }
+
+    #sidebar .brand i {
+        font-size: 28px;
+    }
+
+    #sidebar .brand .text {
+        font-size: 18px;
+    }
+
+    #sidebar .side-menu.top li a {
+        padding: 16px 24px;
+    }
+
+    .table-data {
+        flex-direction: column;
+    }
+
+    .table-data .order,
+    .table-data .todo {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    nav .form-input.show {
+        display: flex;
+    }
+
+    nav .form-input {
+        display: none;
+    }
+}

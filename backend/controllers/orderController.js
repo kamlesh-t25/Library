@@ -6,7 +6,7 @@ const orderRouter=express.Router();
 
 
 orderRouter.post("/requestBook",authMiddleware,requestBook);
-orderRouter.post("/updateStatus",authMiddleware,changeStatus);
+orderRouter.post("/updateStatus",changeStatus);
 orderRouter.post("/userOrder",authMiddleware,getUserOrder);
 orderRouter.get("/getOrders",getOrders);
 

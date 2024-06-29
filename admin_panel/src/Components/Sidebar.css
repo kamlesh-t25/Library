@@ -1,0 +1,6 @@
+.text.hidden {
+    display: none;
+  }
+.sidebar{
+    z-index: -10000000;
+}  
