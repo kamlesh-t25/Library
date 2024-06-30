@@ -7,6 +7,9 @@ const Sidebar = ({ isSidebarVisible }) => {
   const handleItemClick = (itemName) => {
     setActiveItem(itemName);
   };
+  // if( prop.isSidebarVisible === true ){
+  //   document.getElementById('sidebar').style.width = 'unset';
+  // }
 
   return (
     <section id="sidebar">

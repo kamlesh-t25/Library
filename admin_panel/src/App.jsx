@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from './Components/Sidebar';
 import Navbar from './Components/Navbar';
 import Main from './Components/Main';
@@ -7,7 +7,6 @@ import 'boxicons/css/boxicons.min.css';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-
 
 const App = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -21,7 +20,14 @@ const App = () => {
     setIsDarkMode(!isDarkMode);
     document.body.classList.toggle('dark');
   };
-
+  useEffect(() => {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+      if(isSidebarVisible){
+        document.getElementById('sidebar').style.width = 'unset';
+      }
+    }
+  }, [isSidebarVisible]);
   return (
   <>
   <ToastContainer position="top-right"/>
