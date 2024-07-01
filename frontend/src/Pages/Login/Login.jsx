@@ -28,7 +28,7 @@ const Login = ({URL}) => {
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
-                        borderRadius: '10px 0 0 10px',
+                        borderRadius: '10px 10px 0 0',
                         position: 'relative'
                     }}>
                         {/* Image or text can be added here if needed */}
