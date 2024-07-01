@@ -1,6 +1,6 @@
 .ordersContainer{
     padding: 20px;
-    width: 80%;
+    width: 90%;
     margin: auto;
     /* display: grid;
     grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); */
@@ -15,7 +15,7 @@
     /* border: 2px solid red; */
     padding: 10px;
     display: grid;
-    grid-template-columns: 1.5fr 1fr 0.5fr 0.5fr;
+    grid-template-columns: 1.5fr 1fr 0.5fr 0.5fr 0.5fr;
     gap: 20px;
 }
 
@@ -37,6 +37,13 @@
     background-color: rgb(79, 134, 79);
 }
 
+.greenOrder {
+    order: 1;
+  }
+  
+  .redOrder {
+    order: 2;
+  }
 
 .bookCard h2{
     display: flex;
