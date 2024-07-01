@@ -125,3 +125,15 @@ online-library-management/
 - `Step 4:` Initialize the project and install dependencies by running the following commands in your terminal:`npm init -y` and then `npm install`.
 
 - `Step 5:` Start the server side of elibrary by running the following command in terminal:`nodemon server.js`.
+
+### Admin-Panel:
+
+- `Step 1:` Open your terminal and navigate to the desired directory where you want to place your source code.
+
+- `Step 2:` Run the following command to clone the repository: `git clone https://github.com/kamlesh-t25/Library.git`.
+
+- `Step 3:` Navigate to the frontend directory: `cd admin-panel`.
+
+- `Step 4:` Initialize the project and install dependencies by running the following commands in your terminal:`npm init -y` and then `npm install`.
+
+- `Step 5:` Start the admin side of elibrary by running the following command in terminal:`npm run dev`.
