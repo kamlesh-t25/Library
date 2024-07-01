@@ -14,7 +14,7 @@
 }
 @media (max-width:650px){
     .cardStyle{
-        width: 100%;
+        width: 90%;
     }
 }
 .bookCard.outOfStock {

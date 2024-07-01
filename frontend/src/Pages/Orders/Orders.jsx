@@ -9,7 +9,11 @@ const Orders = () => {
   const { booksList, orders } = useContext(StoreContext);
 
   if (!orders || !orders.items || booksList.length === 0) {
-    return <div>Loading...</div>;
+    return( 
+    <>
+      <Navbar/>
+      <div className=' text-center font-extrabold text-2xl'>No order placed yet...</div>;
+    </> ); 
   }
 
   const orderedBooks = booksList.filter((book) =>

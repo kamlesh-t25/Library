@@ -130,3 +130,9 @@
     width: 300px;
 }
 }
+
+@media (max-width:600px){
+  .header{
+    height: 35vh;
+  }
+}
