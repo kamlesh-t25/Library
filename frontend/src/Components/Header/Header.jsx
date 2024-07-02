@@ -7,7 +7,7 @@ import { assets } from '../../assets/assets';
 const Header = () => {
   const {userName}=useContext(StoreContext);
   return (
-    <div className='header'>
+    <div className='header' id='header'>
       {/* <div className="header-content">
         <h2 className='heading'>Welcome</h2>
         <p className='content'>Hello {userName ? userName : "Loading..."}</p>

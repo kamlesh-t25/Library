@@ -113,6 +113,10 @@
   cursor: pointer;
 }
 
+.logout-orders p:hover{
+  color: tomato;
+}
+
 .logout-popup-list:hover .logout-orders{
     display: flex;
     flex-direction: column;

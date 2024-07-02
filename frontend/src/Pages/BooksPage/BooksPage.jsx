@@ -45,7 +45,7 @@ const BooksPage = () => {
 
     <div className="booksCard-container">
       {booksList.filter(book => book.department === subCategory || subCategory === "").map((element, index) => (
-          <BookCard key={index} id={element._id} title={element.title} author={element.author} description={element.description} />
+          <BookCard key={index} id={element._id} title={element.title} author={element.author} description={element.description} count={element.count} />
         ))}
     </div>
     <Footer/>

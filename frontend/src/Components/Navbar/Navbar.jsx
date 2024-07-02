@@ -30,16 +30,16 @@ const Navbar = () => {
       </div>
 
       <div className="icons">
-      <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}> <a href="#">Home</a> </li>
+      <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}> <a onClick={()=>window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</a> </li>
       {/* <li className={activeLink=='books' ?"active":''}  onClick={()=>handleLinkClick('books')}>Books</li> */}
       <li className={activeLink=='contact' ?"active":''}  onClick={()=>handleLinkClick('contact')}><a href='#footer'>Contact</a></li>
       <a href="#" className='icon-size' onClick={()=>navigate('/cart')}><ion-icon  name="cart-outline"></ion-icon></a>
       <div className="logout-popup-list">
         <a href="#" className='icon-size'><ion-icon  name="person-outline"></ion-icon></a>
         <div className="logout-orders">
-          <p onClick={logoutHandler}>LogOut</p>
-          <br />
           <p onClick={()=>navigate("/orders")}>Orders</p>
+          <br />
+          <p onClick={logoutHandler}>LogOut</p>
         </div>
       </div>
       </div>

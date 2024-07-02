@@ -115,6 +115,7 @@ const StoreContextProvider=(props)=>{
         console.log(response);
         if(response.data.success){
             toast.success(response.data.message);
+            getUserOrder();
         }else{
             toast.error(response.data.message);
         }
@@ -125,7 +126,7 @@ const StoreContextProvider=(props)=>{
     const changeStatus=async(bookId,newStatus)=>{
         const response=await axios.post(URL+"/library/orders/updateStatus",{bookId,newStatus},{headers:{token}});
         console.log(response);
-
+        getUserOrder();
     }
 
     const getUserOrder=async()=>{

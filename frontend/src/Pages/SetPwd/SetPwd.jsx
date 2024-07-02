@@ -18,9 +18,9 @@ const SetPwd = ({URL}) => {
       // Add your form submission logic here, e.g., sending a request to an API
       const response=await axios.post(URL+"/library/user/saveUser",{name,email,password});
       if(response.data.success){
-        navigate('/home');
-        localStorage.setItem('token',response.data.token);
-        console.log("token :"+response.data.token);
+        navigate('/');
+        // localStorage.setItem('token',response.data.token);
+        // console.log("token :"+response.data.token);
         toast.success("User registered successfully!");
         }else {
         console.log(response.data.message);

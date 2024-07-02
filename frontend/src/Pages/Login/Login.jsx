@@ -28,7 +28,7 @@ const Login = ({URL}) => {
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                         backgroundRepeat: 'no-repeat',
-                        borderRadius: '10px 0 0 10px',
+                        borderRadius: '10px 10px 0 0',
                         position: 'relative'
                     }}>
                         {/* Image or text can be added here if needed */}
@@ -54,7 +54,7 @@ const Login = ({URL}) => {
                                     <input type="submit" className="submit" value="Sign In" />
                                 </div>
                                 <div className="signin">
-                                    <span>Don't have an account? <a href="/">Sign Up here</a></span>
+                                    <span>Don't have an account? <a href="/Register">Sign Up here</a></span>
                                 </div>
                             </form>
                         </div>  
