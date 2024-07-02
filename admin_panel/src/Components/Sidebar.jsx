@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Sidebar.css'; // Assuming you have a CSS file for styling
+import './Sidebar.css'; 
 
 const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
@@ -13,7 +13,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
     <section id="sidebar">
       <a href="#" className="brand">
         <i className="bx bxs-smile"></i>
-        <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>AdminHub</span>
+        <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>eLibrary</span>
       </a>
       <ul className="side-menu top">
         <li className={activeItem === 'Dashboard' ? 'active' : ''}>
