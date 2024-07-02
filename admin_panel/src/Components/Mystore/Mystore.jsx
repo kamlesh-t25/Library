@@ -12,7 +12,8 @@ const Mystore = ({ addBook }) => {
     vendor: '',
     vendor_id: '',
     publisher: '',
-    publisher_id: ''
+    publisher_id: '',
+    category:''
   });
 
   const handleChange = (e) => {
@@ -35,7 +36,8 @@ const Mystore = ({ addBook }) => {
       vendor: '',
       vendor_id: '',
       publisher: '',
-      publisher_id: ''
+      publisher_id: '',
+      category: ''
     });
   };
 
@@ -48,28 +50,38 @@ const Mystore = ({ addBook }) => {
             <input type="text" name="title" value={bookData.title} onChange={handleChange} />
           </div>
           <div className="form-group">
-            <label>Category:</label>
-            <input type="text" name="genre" value={bookData.genre} onChange={handleChange} />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label>Book Count:</label>
-            <input type="text" name="count" value={bookData.count} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label>SubCategory:</label>
-            <input type="text" name="department" value={bookData.department} onChange={handleChange} />
-          </div>
-        </div>
-        <div className="form-row">
-          <div className="form-group">
-            <label>Author Name:</label>
-            <input type="text" name="author" value={bookData.author} onChange={handleChange} />
-          </div>
-          <div className="form-group">
             <label>Description:</label>
-            <input type="text" name="description" value={bookData.description} onChange={handleChange} />
+            <input type="text" name="genre" value={bookData.description} onChange={handleChange} />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Book Author:</label>
+            <input type="text" name="count" value={bookData.author} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Genre:</label>
+            <input type="text" name="department" value={bookData.genre} onChange={handleChange} />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Department:</label>
+            <input type="text" name="author" value={bookData.department} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Count:</label>
+            <input type="text" name="description" value={bookData.count} onChange={handleChange} />
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Vendor:</label>
+            <input type="text" name="vendor" value={bookData.vendor} onChange={handleChange} />
+          </div>
+          <div className="form-group">
+            <label>Vendor Id:</label>
+            <input type="text" name="vendor_id" value={bookData.vendor_id} onChange={handleChange} />
           </div>
         </div>
         <div className="form-row">
@@ -84,12 +96,8 @@ const Mystore = ({ addBook }) => {
         </div>
         <div className="form-row">
           <div className="form-group">
-            <label>Vendor:</label>
-            <input type="text" name="vendor" value={bookData.vendor} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label>Vendor Id:</label>
-            <input type="text" name="vendor_id" value={bookData.vendor_id} onChange={handleChange} />
+            <label>Category:</label>
+            <input type="text" name="publisher" value={bookData.category} onChange={handleChange} />
           </div>
         </div>
       <div className="form-buttons">
