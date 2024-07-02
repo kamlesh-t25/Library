@@ -135,4 +135,7 @@
   .header{
     height: 35vh;
   }
+  .header-text{
+    font-size: small;
+  }
 }
