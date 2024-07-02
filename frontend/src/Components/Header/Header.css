@@ -134,6 +134,10 @@
 @media (max-width:600px){
   .header{
     height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8%
   }
   .header-text{
     font-size: small;
