@@ -38,7 +38,7 @@ const Orders = () => {
       <Navbar />
       <div className="bookCard order-titles" style={{border: "2px solid black", background: "green"}}>
         <h2>Title</h2>
-        <p>Author</p>
+        <p className='orders-authorName'>Author</p>
         <p>Status</p>
         <p>Return Reminder</p>
       </div>
