@@ -64,7 +64,7 @@ const OrderTable = () => {
                                         <div key={itemIndex} className="book-item">
                                             <p>{item.bookId}</p>
                                             <p>{book?.title || 'Loading...'}</p>
-                                            {/* <p>{book?.author || 'Loading...'}</p> */}
+                                            <p>{book?.author || 'Loading...'}</p>
                                             <p>Count: {book?.count || 'Loading'}</p>
                                             <select
                                                 className="select-status-options order-item-status"
@@ -96,7 +96,7 @@ const OrderTable = () => {
                                     <div key={itemIndex} className="book-item">
                                         <p>{item.bookId}</p>
                                         <p>{book?.title || 'Loading...'}</p>
-                                        {/* <p>{book?.author || 'Loading...'}</p> */}
+                                        <p>{book?.author || 'Loading...'}</p>
                                         <p>Count: {book?.count || 'Loading'}</p> 
                                         <select
                                             className="select-status-options order-item-status"

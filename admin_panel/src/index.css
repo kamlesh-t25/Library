@@ -161,7 +161,6 @@ body.dark {
 /* CONTENT */
 #content {
   position: relative;
-  width: calc(100% - 280px);
   left: 280px;
   transition: .3s ease;
 }
@@ -441,4 +440,8 @@ body.dark {
 	#content main .table-data .todo .todo-list {
 		min-width: 420px;
 	}
+}
+
+@media screen and (max-width: 770px) {
+	
 }

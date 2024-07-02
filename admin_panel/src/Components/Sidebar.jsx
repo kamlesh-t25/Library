@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import './Sidebar.css'; // Assuming you have a CSS file for styling
 
-const Sidebar = ({ isSidebarVisible }) => {
+const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
 
-  const handleItemClick = (itemName) => {
+  const handleItemClick = (itemName, component) => {
     setActiveItem(itemName);
+    setActiveComponent(component); // Set the active component
   };
-  // if( prop.isSidebarVisible === true ){
-  //   document.getElementById('sidebar').style.width = 'unset';
-  // }
 
   return (
     <section id="sidebar">
@@ -19,25 +17,25 @@ const Sidebar = ({ isSidebarVisible }) => {
       </a>
       <ul className="side-menu top">
         <li className={activeItem === 'Dashboard' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Dashboard')}>
+          <a href="#" onClick={() => handleItemClick('Dashboard', 'Main')}>
             <i className="bx bxs-dashboard"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Dashboard</span>
           </a>
         </li>
         <li className={activeItem === 'My Store' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('My Store')}>
+          <a href="#" onClick={() => handleItemClick('My Store', 'Main')}>
             <i className="bx bxs-shopping-bag-alt"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>My Store</span>
           </a>
         </li>
         <li className={activeItem === 'Analytics' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Analytics')}>
+          <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}> 
             <i className="bx bxs-doughnut-chart"></i>
-            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Analytics</span>
+            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Requests</span>
           </a>
         </li>
         <li className={activeItem === 'Message' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Message')}>
+          <a href="#" onClick={() => handleItemClick('Message', 'Main')}>
             <i className="bx bxs-message-dots"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Message</span>
           </a>
