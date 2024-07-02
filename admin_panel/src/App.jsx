@@ -7,6 +7,7 @@ import 'boxicons/css/boxicons.min.css';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import Mystore from './Components/Mystore/Mystore';
 
 const App = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -61,6 +62,7 @@ const App = () => {
           <Navbar toggleSidebar={toggleSidebar} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
           {activeComponent === 'Main' && <Main />}
           {activeComponent === 'OrderTable' && <OrderTable />}
+          {activeComponent === 'Mystore' && <Mystore />}
         </div>
       </div>
     </>

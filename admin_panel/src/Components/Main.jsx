@@ -3,7 +3,7 @@ import React from 'react';
 const Main = () => {
   return (
     <main>
-      <div className="head-title">
+      {/* <div className="head-title">
         <div className="left">
           <h1>Dashboard</h1>
           <ul className="breadcrumb">
@@ -18,7 +18,7 @@ const Main = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
       <div className="box info">
         <h3>Welcome to the Admin Panel</h3>
         <p>Manage your application efficiently.</p>

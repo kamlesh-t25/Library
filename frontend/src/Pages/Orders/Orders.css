@@ -37,13 +37,13 @@
     background-color: rgb(79, 134, 79);
 }
 
-.greenOrder {
+/* .greenOrder {
     order: 1;
   }
   
   .redOrder {
     order: 2;
-  }
+  } */
 
 .bookCard h2{
     display: flex;
