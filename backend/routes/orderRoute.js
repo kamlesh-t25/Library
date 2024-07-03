@@ -29,6 +29,8 @@ const requestBook=async(req,res)=>{
     }
 }
 
+
+//for admin panel
 const changeStatus = async (req, res) => {
     const { userId, bookId,newStatus } = req.body;
     try {
@@ -36,6 +38,8 @@ const changeStatus = async (req, res) => {
         let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
+            // console.log("Order not found");
+            console.log(userId);
             return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
         }
 
@@ -54,6 +58,34 @@ const changeStatus = async (req, res) => {
     }
 }
 
+
+//for frontend return 
+const changeReturnStatus = async (req, res) => {
+    const { userId, bookId } = req.body;
+    try {
+        // Find the order document for the user
+        let order = await orderModel.findOne({ userId, "items.bookId": bookId });
+
+        if (!order) {
+            // console.log("Order not found");
+            console.log(userId);
+            return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
+        }
+
+        // Update the status of the specific book
+        const item = order.items.find(item => item.bookId === bookId);
+        if (item) {
+            item.status = "Returned";
+        }
+
+        // Save the updated order document
+        await order.save();
+        res.json({ success: true, message: "Order approved!", order });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Failed to approve order" });
+    }
+}
 
 const getUserOrder=async(req,res)=>{
     const {userId}=req.body;
@@ -77,4 +109,4 @@ const getOrders=async(req,res)=>{
     }
 }
 
-export {requestBook,getOrders,getUserOrder,changeStatus};
+export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus};

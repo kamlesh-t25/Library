@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Sidebar.css'; // Assuming you have a CSS file for styling
+import './Sidebar.css';
 
-const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
+const Sidebar = ({ isSidebarVisible, setActiveComponent }) => {
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
 
   const handleItemClick = (itemName, component) => {
@@ -13,7 +13,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
     <section id="sidebar">
       <a href="#" className="brand">
         <i className="bx bxs-smile"></i>
-        <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>AdminHub</span>
+        <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>eLibrary</span>
       </a>
       <ul className="side-menu top">
         <li className={activeItem === 'Dashboard' ? 'active' : ''}>
@@ -23,13 +23,22 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
           </a>
         </li>
         <li className={activeItem === 'My Store' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('My Store', 'Main')}>
+          <a href="#" onClick={() => handleItemClick('My Store', 'AddBook')}>
             <i className="bx bxs-shopping-bag-alt"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>My Store</span>
           </a>
         </li>
+
+
+        <li className={activeItem === 'My Store' ? 'active' : ''}>
+          <a href="#" onClick={() => handleItemClick('My Store', 'AddBook')}>
+            <i class='bx bxs-add-to-queue'></i>
+            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Add Book</span>
+          </a>
+        </li>
+
         <li className={activeItem === 'Analytics' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}> 
+          <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}>
             <i className="bx bxs-doughnut-chart"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Requests</span>
           </a>

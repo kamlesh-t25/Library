@@ -1,10 +1,10 @@
 import bookModel from "../models/bookModel.js";
 
 const addBook=async(req,res)=>{
-    const {title,description,author,genre,department,count,vendor,vendor_id,publisher,publisher_id}=req.body;
+    const {title,description,category,author,genre,department,count,vendor,vendor_id,publisher,publisher_id}=req.body;
 
     const newBook=new bookModel({
-        title,description,author,genre,department,count,vendor,vendor_id,publisher,publisher_id
+        title,category,description,author,genre,department,count,vendor,vendor_id,publisher,publisher_id
     })
 
     
@@ -67,6 +67,29 @@ const updateBookCount = async (req, res) => {
       res.status(500).json({ success: false, message: "Error" });
     }
 };
+
+const increaseBookCount=async(req,res)=>{
+    try {
+        // Update the book count
+        const requestedBook=await bookModel.findOne({_id:req.body.id})
+        const updatedBook = await bookModel.findByIdAndUpdate(
+          req.body.id,
+          { count: requestedBook.count + 1 },
+          { new: true } // Return the updated document
+        );
+    
+        // If the book was not found
+        if (!updatedBook) {
+          return res .json({ success: false, message: "Book not found" });
+        }
+    
+        // Send the updated book as a response
+        res.json({ success: true, message: "Book count updated" });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: "Error" });
+      }
+}
   
 
-export {addBook,listBooks,deleteBook,updateBookCount};
+export {addBook,listBooks,deleteBook,updateBookCount,increaseBookCount};

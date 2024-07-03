@@ -60,6 +60,7 @@ const StoreContextProvider=(props)=>{
         }
     }
 
+
     useEffect(() => {
         console.log("Books List updated:", booksList);
     }, [booksList]);
@@ -123,10 +124,26 @@ const StoreContextProvider=(props)=>{
         getCartData();
     }
 
-    const changeStatus=async(bookId,newStatus)=>{
-        const response=await axios.post(URL+"/library/orders/updateStatus",{bookId,newStatus},{headers:{token}});
+    const changeStatus=async(bookId)=>{
+        console.log("BookId : -"+bookId);
+        const response=await axios.post(URL+"/library/orders/returnStatus",{bookId},{headers:{token}});
         console.log(response);
         getUserOrder();
+    }
+
+    const returnBook=async(id)=>{
+        if(token){
+            await changeStatus(id);
+            const response=await axios.post(URL+"/library/books/increaseCount",{id});
+            if(response.data.success){
+                toast.success("Book returned successfully !");
+            }else{
+                toast.error(response.data.message);
+            }
+        }else{
+            console.log("Token not found !");
+        }
+
     }
 
     const getUserOrder=async()=>{
@@ -198,7 +215,8 @@ const StoreContextProvider=(props)=>{
         booksList,
         addToCart,removeFromCart,getCartData,
         cartData,
-        requestBook,changeStatus,getUserOrder,orders
+        requestBook,changeStatus,getUserOrder,orders,
+        returnBook
 
 
     }
