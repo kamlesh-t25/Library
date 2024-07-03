@@ -65,22 +65,12 @@ const StoreContextProvider=(props)=>{
         getBooksList();
         getUsers();
     },[])
-
-
-    //book add and delete
-    const addBook=async(bookData)=>{
-        const response=await axios.post(URL+"/library/books/add",bookData);
-        if(response.data.success){
-            toast.success(response.data.message);
-        }else response.error(response.data.message);
-    }
     
     const contextValue={
         URL,
         orders,booksList,
         getUserName,
-        statusChange,
-        addBook
+        statusChange
     }
 
 

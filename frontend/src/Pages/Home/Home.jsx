@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Home.css'
 import Header from '../../Components/Header/Header.jsx'
 import ExploreCategory from '../../Components/ExploreCategory/ExploreCategory.jsx'
@@ -11,6 +11,10 @@ const Home = () => {
   const [category,setCategory]=useState("All");
   document.documentElement.style.fontSize = '';
   document.documentElement.style.overflowX = '';
+  // useEffect(() => {
+  //     window.location.reload();
+  // }, []);
+
   
   return (
 <div className="home-home">

@@ -84,7 +84,7 @@ const increaseBookCount=async(req,res)=>{
         }
     
         // Send the updated book as a response
-        res.json({ success: true, message: "Book count updated" });
+        res.json({ success: true, message: "Book count increased" });
       } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: "Error" });

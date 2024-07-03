@@ -18,7 +18,7 @@
     }
 }
 .bookCard.outOfStock {
-    box-shadow: 0 0 10px red;
+    filter: drop-shadow(1px 1px 20px red);
   }
 .cardStyle:hover {
     transform: scale(1.05);

@@ -8,7 +8,7 @@ const ExploreCategory = ({category_list,category,setCategory}) => {
   return (
 <div className="explose-category-container">
     <div className="category-description">
-        <h2><b><u>Select category</u></b> : -</h2>
+        <h1 className=' text-center text-3xl font-extrabold my-10'>Select Category</h1>
         <div className="card-display-section">
           {
             category_list.map((element,index)=>{

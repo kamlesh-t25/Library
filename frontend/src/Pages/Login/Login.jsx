@@ -54,7 +54,8 @@ const Login = ({URL}) => {
                                     <input type="submit" className="submit" value="Sign In" />
                                 </div>
                                 <div className="signin">
-                                    <span>Don't have an account? <a href="/Register">Sign Up here</a></span>
+                                    <span>Don't have an account? <a href="/Register">Sign Up here</a></span> <br></br>
+                                    <span>Forgot your password? <a href="/Forgot_password">Reset it here</a></span>
                                 </div>
                             </form>
                         </div>  

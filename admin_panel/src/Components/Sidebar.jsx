@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './Sidebar.css';
+import './Sidebar.css'; 
 
-const Sidebar = ({ isSidebarVisible, setActiveComponent }) => {
+const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
 
   const handleItemClick = (itemName, component) => {
@@ -23,22 +23,19 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => {
           </a>
         </li>
         <li className={activeItem === 'My Store' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('My Store', 'AddBook')}>
+          <a href="#" onClick={() => handleItemClick('My Store', 'MyStore')}>
             <i className="bx bxs-shopping-bag-alt"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>My Store</span>
           </a>
         </li>
-
-
-        <li className={activeItem === 'My Store' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('My Store', 'AddBook')}>
-            <i class='bx bxs-add-to-queue'></i>
+        <li className={activeItem === 'Add Book' ? 'active' : ''}>
+          <a href="#" onClick={() => handleItemClick('Add Book', 'AddBook')}>
+            <i class='bx bxs-book-add'></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Add Book</span>
           </a>
         </li>
-
         <li className={activeItem === 'Analytics' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}>
+          <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}> 
             <i className="bx bxs-doughnut-chart"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Requests</span>
           </a>

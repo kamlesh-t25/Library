@@ -82,6 +82,7 @@ import Cart from './Pages/Cart/Cart.jsx';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Password_reset from './Pages/Password_setup/Password_reset.jsx';
 
 
 function App() {
@@ -110,6 +111,7 @@ function App() {
               <Route path='/set-password' element={<SetPwd URL={URL} />} />
               <Route path='/register' element={<Register URL={URL} />} />
               <Route path='/login' element={<Login URL={URL} />} />
+              <Route path='/forgot_password' element={<Password_reset URL={URL} />} />
               <Route path='/home' element={<Home />} />
               <Route path='/orders' element={<Orders/>} />
               <Route path='/cart' element={<Cart/>} />

@@ -29,6 +29,11 @@ const StoreContextProvider=(props)=>{
         if (storedToken) {
             setToken(storedToken);
             getUserName();
+        }else{
+            setUserName(""); // Reset userName when token is cleared (logout)
+            setBooksList([]); // Reset booksList when token is cleared (logout)
+            setCartData({}); // Reset cartData when token is cleared (logout)
+            setOrders([]); 
         }
     }, []);
     useEffect(() => {
@@ -36,6 +41,11 @@ const StoreContextProvider=(props)=>{
         if (storedToken) {
             setToken(storedToken);
             getUserName();
+        }else{
+            setUserName(""); // Reset userName when token is cleared (logout)
+            setBooksList([]); // Reset booksList when token is cleared (logout)
+            setCartData({}); // Reset cartData when token is cleared (logout)
+            setOrders([]); 
         }
     }, [token]);
 
@@ -127,18 +137,22 @@ const StoreContextProvider=(props)=>{
     const changeStatus=async(bookId)=>{
         console.log("BookId : -"+bookId);
         const response=await axios.post(URL+"/library/orders/returnStatus",{bookId},{headers:{token}});
-        console.log(response);
         getUserOrder();
+        return response;
     }
 
     const returnBook=async(id)=>{
         if(token){
-            await changeStatus(id);
-            const response=await axios.post(URL+"/library/books/increaseCount",{id});
-            if(response.data.success){
-                toast.success("Book returned successfully !");
+            const response2=await changeStatus(id);
+            if(response2.data.success){
+                const response=await axios.post(URL+"/library/books/increaseCount",{id});
+                if(response.data.success){
+                    toast.success(response2.data.message +" & "+response.data);
+                }else{
+                    toast.error(response.data.message);
+                }
             }else{
-                toast.error(response.data.message);
+                toast.error(response2.data.message);
             }
         }else{
             console.log("Token not found !");
@@ -210,12 +224,12 @@ const StoreContextProvider=(props)=>{
     const contextValue={
         URL,
         weatherData,
-        token,setToken,userName,
+        token,setToken,userName,setUserName,
         subCategory,setSubCategory,
-        booksList,
-        addToCart,removeFromCart,getCartData,
+        booksList,setBooksList,
+        addToCart,removeFromCart,getCartData,setCartData,
         cartData,
-        requestBook,changeStatus,getUserOrder,orders,
+        requestBook,changeStatus,getUserOrder,orders,setOrders, 
         returnBook
 
 

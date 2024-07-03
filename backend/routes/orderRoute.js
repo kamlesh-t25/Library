@@ -67,25 +67,34 @@ const changeReturnStatus = async (req, res) => {
         let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
-            // console.log("Order not found");
-            console.log(userId);
+            console.log(`Order not found for userId: ${userId}`);
             return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
         }
-
-        // Update the status of the specific book
         const item = order.items.find(item => item.bookId === bookId);
-        if (item) {
-            item.status = "Returned";
+        if(item.status !="Approve"){
+            return res.json({success:false,message:"Book need to be approved for return !"});
         }
+        // Find the specific book in the order items
+        const itemIndex = order.items.findIndex(item => item.bookId === bookId);
+        if (itemIndex === -1) {
+            return res.status(404).json({ success: false, message: "Book not found in the order" });
+        }
+
+        // Update the status of the specific book to "Returned"
+        order.items[itemIndex].status = "Returned";
+
+        // Remove the book from the items array
+        order.items = order.items.filter(item => item.bookId !== bookId);
 
         // Save the updated order document
         await order.save();
-        res.json({ success: true, message: "Order approved!", order });
+        res.json({ success: true, message: "Book returned and removed from the order", order });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: "Failed to approve order" });
+        res.status(500).json({ success: false, message: "Failed to return the book" });
     }
-}
+};
+
 
 const getUserOrder=async(req,res)=>{
     const {userId}=req.body;

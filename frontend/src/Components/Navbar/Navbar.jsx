@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css'
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [activeLink,setActiveLink]=useState("home");
+  const {setUserName,setBooksList,setCartData,setOrders}=useContext(StoreContext);
 
   const navigate=useNavigate();
   const handleLinkClick = (link) => {
@@ -12,6 +13,10 @@ const Navbar = () => {
 
   const logoutHandler=()=>{
     localStorage.removeItem('token');
+    setUserName(""); // Reset userName when token is cleared (logout)
+            setBooksList([]); // Reset booksList when token is cleared (logout)
+            setCartData({}); // Reset cartData when token is cleared (logout)
+            setOrders([]);
     navigate('/login');
   }
 
@@ -50,5 +55,6 @@ const Navbar = () => {
   )
 }
 import './Navbar.css'
+import { StoreContext } from '../../Context/StoreContext';
 
 export default Navbar

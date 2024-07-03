@@ -1,133 +1,133 @@
 .header{
-    width: 100%;
-    height: 60vh;
-    /* background: url('https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif') no-repeat; */
-    /* background-color: #F9F9F9; */
-    /* background-size: cover; */
-    /* background-repeat: no-repeat; */
-    display: flex;
-    /* flex-direction: column; */
-    gap: 20px;
-    /* background-color: red; */
-    justify-content: space-around;
-    align-items: center;
+  width: 100%;
+  height: 60vh;
+  /* background: url('https://tailwindcss.com/_next/static/media/docs@30.8b9a76a2.avif') no-repeat; */
+  /* background-color: #F9F9F9; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+  display: flex;
+  /* flex-direction: column; */
+  gap: 20px;
+  /* background-color: red; */
+  justify-content: space-around;
+  align-items: center;
 
-    /* border: 5px solid red; */
+  /* border: 5px solid red; */
 }
 
 /* order.css */
 @keyframes typing {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
+  from {
+    width: 0;
   }
-  
-  @keyframes blink-caret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: black;
-    }
+  to {
+    width: 100%;
   }
-  
-  .header-text h2 {
-    display: inline-block;
-    overflow: hidden;
-    color: tomato;
-    margin-bottom: 5px;
-    white-space: nowrap;
-    /* border-right: 0.15em solid black; */
-    font-size: 4em;
-    animation: typing 1s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
   }
-  
-  .header-text h5 {
-    /* margin-top: 10px; */
-    font-size: 1em;
-    animation: fadeIn 2s;
+  50% {
+    border-color: black;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+}
+
+.header-text h2 {
+  display: inline-block;
+  overflow: hidden;
+  color: tomato;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  /* border-right: 0.15em solid black; */
+  font-size: 4em;
+  animation: typing 1s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+.header-text h5 {
+  /* margin-top: 10px; */
+  font-size: 1em;
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}
+
 
 .header-image{
-    float: right;
-    width: 500px;
+  float: right;
+  width: 500px;
 }
 
 
 
 .header-content {
-    text-align: center;
+  text-align: center;
 }
 
 .header-content .heading{
-    font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 
 .header-content .content{
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 
 .search{
-    width: max-content;
-    padding: 18px;
-    border-radius: 36px;
-    background-color: #f6f6f6;
-    display: flex;
-    align-items: center;
+  width: max-content;
+  padding: 18px;
+  border-radius: 36px;
+  background-color: #f6f6f6;
+  display: flex;
+  align-items: center;
 }
 
 .search:focus-within{
-    box-shadow: 0 0 5px rgba(0,0,0,0.75);
+  box-shadow: 0 0 5px rgba(0,0,0,0.75);
 }
 
 #search-space{
-    outline: none;
-    border: none;
-    /* margin-right: 14px; */
-    background-color: transparent;
-    width: 300px;
-    font-size: 1.2rem;
+  outline: none;
+  border: none;
+  /* margin-right: 14px; */
+  background-color: transparent;
+  width: 300px;
+  font-size: 1.2rem;
 }
 
 .search-icons{
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 10px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 @media (max-width:800px){
-    .search{
-        padding: 12px;
-        border-radius: 24px;
-    }
-    #search-space{
-        width: 250px;
-        font-size: 1.2rem;
-    }
+  .search{
+      padding: 12px;
+      border-radius: 24px;
+  }
+  #search-space{
+      width: 250px;
+      font-size: 1.2rem;
+  }
 }
 
 
 @media (max-width:780px){
-  .header-text h2{
-    font-size: 2rem;
-  }
-  .header-image{
-    float: right;
-    width: 300px;
+.header-text h2{
+  font-size: 2rem;
+}
+.header-image{
+  float: right;
+  width: 300px;
 }
 }
 

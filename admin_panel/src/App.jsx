@@ -7,7 +7,8 @@ import 'boxicons/css/boxicons.min.css';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
-import AddBook from './Components/AddBook/AddBook.jsx'
+import AddBook from './Components/AddBook/AddBook';
+import Mystore from './Components/MyStore/MyStore.jsx'
 
 const App = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -63,10 +64,11 @@ const App = () => {
           {activeComponent === 'Main' && <Main />}
           {activeComponent === 'OrderTable' && <OrderTable />}
           {activeComponent === 'AddBook' && <AddBook />}
+          {activeComponent === 'MyStore' && <Mystore />}
         </div>
       </div>
     </>
   );
 };
 
-export default App;
+export default App;

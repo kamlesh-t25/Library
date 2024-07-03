@@ -35,7 +35,9 @@ const Footer = () => {
   };
 
 
-
+  if (!weatherData) {
+    return <div>Loading...</div>;
+}
 
   return (
     <div className='footer-container' id='footer'>
