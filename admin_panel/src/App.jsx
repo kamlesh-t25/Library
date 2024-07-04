@@ -6,9 +6,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import './index.css';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import Login from './Components/Login/Login.jsx';
+// index.js or App.js
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'boxicons/css/boxicons.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
+  <>
+    <ToastContainer position="top-right" />
+    <div>
     <Router>
       <Routes>
         <Route path='/' element={<Login/>} />
@@ -16,6 +24,8 @@ const App = () => {
         {/* Add other routes here if needed */}
       </Routes>
     </Router>
+    </div>
+  </> 
   );
 };
 

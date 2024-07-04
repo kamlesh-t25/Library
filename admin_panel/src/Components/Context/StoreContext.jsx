@@ -10,6 +10,16 @@ const StoreContextProvider=(props)=>{
     const [booksList,setBooksList]=useState([]);
     const [users,setUsers]=useState([]);
 
+
+    // useEffect(()=>{
+    //     const getAdmins=async()=>{
+    //         const response=await axios.get(URL+"/library/admins");
+    //         console.log("Admins :-  ",response.data);
+    //     }
+    //     getAdmins();
+    // },[])
+
+
     const getAllOrders=async(req,res)=>{
         const response=await axios.get(URL+"/library/orders/getOrders");
         if(response.data.success){
@@ -43,6 +53,16 @@ const StoreContextProvider=(props)=>{
     }
 
 
+    const deleteBook=async(id)=>{
+        const response=await axios.post(URL+"/library/books/delete",{id});
+        if(response.data.success){
+            toast.success(response.data.message);
+            getBooksList();
+        }else{
+            toast.error(response.data.message);
+        }
+    }
+
     const statusChange=async(userId,bookId,newStatus)=>{
         const response=await axios.post(URL+"/library/orders/updateStatus",{userId,bookId,newStatus});
         if(response.data.success){
@@ -68,7 +88,7 @@ const StoreContextProvider=(props)=>{
     
     const contextValue={
         URL,
-        orders,booksList,
+        orders,booksList,deleteBook,
         getUserName,
         statusChange
     }

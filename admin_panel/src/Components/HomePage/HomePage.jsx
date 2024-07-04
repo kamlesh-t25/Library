@@ -63,7 +63,7 @@ const HomePage = () => {
 
   return (
     <>
-      <ToastContainer position="top-right" />
+      {/* <ToastContainer position="top-right" /> */}
       <div>
         <Sidebar isSidebarVisible={isSidebarVisible} setActiveComponent={setActiveComponent} />
         <div id="content" style={{ left: isSidebarVisible ? '280px' : '60px' }}>

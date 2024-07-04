@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Register.css';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useEffect } from 'react';
 
 const Register = ({URL}) => {
     const [email, setEmail] = useState('');
@@ -17,6 +18,13 @@ const Register = ({URL}) => {
         return emailPattern.test(email);
     };
 
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            navigate('/home');
+        }
+    }, []);
 
     const handleSubmit = async (e) => {
         // console.log("clicked");

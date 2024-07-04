@@ -28,7 +28,7 @@ const engineeringCategories = [
   }
 ];
 
-const SampleCategory = ({subCategory, setSubCategory}) => {
+const SampleCategory = ({category,subCategory, setSubCategory}) => {
   return (
     <div className="container">
       <div className="products-container">

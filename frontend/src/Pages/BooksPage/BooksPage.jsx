@@ -37,7 +37,7 @@ const BooksPage = () => {
         )
       })}
     </div> */}
-    <SampleCategory subCategory={subCategory} setSubCategory={setSubCategory}  />
+    <SampleCategory category={categoryName} subCategory={subCategory} setSubCategory={setSubCategory}  />
 
 <br />
 <hr />

@@ -41,7 +41,7 @@ const deleteBook=async(req,res)=>{
         res.json({success:true,message:"Book deleted successfully"});
     } catch (error) {
         console.log(error);
-        res.json({success:false,message:"Error"});
+        res.json({success:false,message:"Error in deleting book !"});
     }
 }
 

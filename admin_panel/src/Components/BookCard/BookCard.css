@@ -1,0 +1,52 @@
+.cardStyle{
+    padding: 5%;
+    /* width: 30vw; */
+    min-height: 25vh;
+    /* height:max-content; */
+    /* height: 40%;
+    width: 40%;
+    border-radius: 50%; */
+    /* overflow: scroll; */
+    /* border-radius: 50%; */
+    /* box-shadow:black 10px 10px 10px; */
+    /* filter: drop-shadow(1px 1px 20px black); */
+    display: flex;
+    flex-direction: column;
+}
+@media (max-width:650px){
+    .cardStyle{
+        width: 90%;
+    }
+}
+.bookCard.outOfStock {
+    filter: drop-shadow(1px 1px 20px red);
+  }
+.cardStyle:hover {
+    transform: scale(1.01);
+  }
+.firstElement{
+    /* overflow: scroll; */
+    height: auto;
+    font-size:80px;
+    /* filter: drop-shadow(1px 1px 20px rgb(184, 11, 104)); */
+}
+.propName{
+    font-size:21px;
+}
+
+.thirdElement{
+    height: 20%;
+}
+
+.delete-book-button{
+    padding: 5px 8px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.delete-book-button:hover{
+    background-color: rgb(93, 93, 160);
+    color: black;
+    transition: 0.5s ease-in-out;
+}

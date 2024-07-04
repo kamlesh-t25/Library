@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './Sidebar.css'; 
+import {useNavigate} from 'react-router-dom';
+
 
 const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
-
+  const navigate=useNavigate();
   const handleItemClick = (itemName, component) => {
     setActiveItem(itemName);
     setActiveComponent(component); // Set the active component
   };
+
+  const logoutHandler=()=>{
+    navigate("/");
+  }
 
   return (
     <section id="sidebar">
@@ -30,7 +36,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
         </li>
         <li className={activeItem === 'Add Book' ? 'active' : ''}>
           <a href="#" onClick={() => handleItemClick('Add Book', 'AddBook')}>
-            <i class='bx bxs-book-add'></i>
+            <i className='bx bxs-book-add'></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Add Book</span>
           </a>
         </li>
@@ -49,7 +55,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
       </ul>
       <ul className="side-menu">
         <li>
-          <a href="#" className="logout">
+          <a href="#" className="logout" onClick={logoutHandler}>
             <i className="bx bxs-log-out-circle"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Logout</span>
           </a>
