@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 
-const Login = () => {
+const Login = ({isVerified,setVerified}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { URL} = useContext(StoreContext);
@@ -20,6 +20,7 @@ const Login = () => {
       if (response.data.success) {
         console.log("111");
         toast.success(response.data.message);
+        setVerified(!isVerified);
         navigate("/home");
       } else {
         console.log("22211");

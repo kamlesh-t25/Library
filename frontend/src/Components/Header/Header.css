@@ -62,8 +62,19 @@
 
 
 .header-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-image img{
   float: right;
   width: 500px;
+}
+
+.header-image img:hover{
+  /* animation: vibrate 0.5s linear infinite; */
+  /* border: 2px solid red; */
 }
 
 

@@ -32,29 +32,35 @@ const requestBook=async(req,res)=>{
 
 //for admin panel
 const changeStatus = async (req, res) => {
-    const { userId, bookId,newStatus } = req.body;
+    const { userId, bookId, newStatus } = req.body;
     try {
         // Find the order document for the user
         let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
-            // console.log("Order not found");
             console.log(userId);
-            return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
+            return res.status(404).json({ success: false, message: "Order or book not found" });
         }
 
-        // Update the status of the specific book
+        // Check if the item is already approved
         const item = order.items.find(item => item.bookId === bookId);
-        if (item) {
-            item.status = newStatus;
+        if (item && item.status === 'Approve') {
+            // Remove the item from the order
+            order.items = order.items.filter(item => item.bookId !== bookId);
+            return res.json({success:false,message:"Book is already approved !"});
+        } else {
+            // Update the status of the specific book
+            if (item) {
+                item.status = newStatus;
+            }
         }
 
         // Save the updated order document
         await order.save();
-        res.json({ success: true, message: "Order approved!", order });
+        res.json({ success: true, message: "Order status updated successfully", order });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: "Failed to approve order" });
+        res.status(500).json({ success: false, message: "Failed to update order status" });
     }
 }
 
@@ -68,7 +74,7 @@ const changeReturnStatus = async (req, res) => {
 
         if (!order) {
             console.log(`Order not found for userId: ${userId}`);
-            return res.status(404).json({ success: false, message: "Order or book not found or already approved" });
+            return res.status(404).json({ success: false, message: "Order or book not found" });
         }
         const item = order.items.find(item => item.bookId === bookId);
         if(item.status !="Approve"){

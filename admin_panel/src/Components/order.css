@@ -128,6 +128,19 @@
 	display: grid;
 	grid-template-columns: 1fr 1.5fr 1.5fr 0.5fr 0.5fr;
 	margin-bottom: 15px;
+	column-gap: 15px;
+}
+
+@media (max-width:920px){
+	.book-item-list .book-item{
+		display: grid;
+		grid-template-columns: 1fr 1.5fr 0.5fr 0.5fr;
+		margin-bottom: 15px;
+	}
+
+	.book-item-list .book-item .book-item-authorName{
+		display: none;
+	}
 }
 
 .order-item-status{

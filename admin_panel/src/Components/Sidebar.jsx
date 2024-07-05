@@ -3,7 +3,7 @@ import './Sidebar.css';
 import {useNavigate} from 'react-router-dom';
 
 
-const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setActiveComponent as a prop
+const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }) => { // Receive setActiveComponent as a prop
   const [activeItem, setActiveItem] = useState('Dashboard'); // Default active item
   const navigate=useNavigate();
   const handleItemClick = (itemName, component) => {
@@ -13,6 +13,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
 
   const logoutHandler=()=>{
     navigate("/");
+    setVerified(!isVerified);
   }
 
   return (

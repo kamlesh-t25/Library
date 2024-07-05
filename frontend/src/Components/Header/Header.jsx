@@ -21,7 +21,7 @@ const Header = () => {
       {/* </form> */}
         <div className="header-text">
             <h2>eLibrary</h2>
-            <h5>Hello {userName ? userName : "Loading..."}</h5>
+            <h5>{userName ?`Hello ${userName}`: ""}</h5>
         </div>
         <div className="header-image">
           <img src={assets.header_image} alt="" />

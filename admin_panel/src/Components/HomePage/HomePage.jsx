@@ -17,7 +17,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({isVerified,setVerified}) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [activeComponent, setActiveComponent] = useState('Main'); // Add state to track the active component
@@ -65,7 +65,7 @@ const HomePage = () => {
     <>
       {/* <ToastContainer position="top-right" /> */}
       <div>
-        <Sidebar isSidebarVisible={isSidebarVisible} setActiveComponent={setActiveComponent} />
+        <Sidebar isVerified={isVerified} setVerified={setVerified} isSidebarVisible={isSidebarVisible} setActiveComponent={setActiveComponent} />
         <div id="content" style={{ left: isSidebarVisible ? '280px' : '60px' }}>
           <Navbar toggleSidebar={toggleSidebar} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
           {activeComponent === 'Main' && <Main />}

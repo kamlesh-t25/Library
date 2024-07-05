@@ -147,7 +147,7 @@ const StoreContextProvider=(props)=>{
             if(response2.data.success){
                 const response=await axios.post(URL+"/library/books/increaseCount",{id});
                 if(response.data.success){
-                    toast.success(response2.data.message +" & "+response.data);
+                    toast.success(response2.data.message +" & "+response.data.message);
                 }else{
                     toast.error(response.data.message);
                 }

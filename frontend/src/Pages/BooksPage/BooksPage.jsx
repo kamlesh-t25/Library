@@ -54,7 +54,7 @@ const BooksPage = () => {
           <BookCard key={index} id={element._id} title={element.title} author={element.author} description={element.description} count={element.count} />
         ))}
     </div>
-    <Footer/>
+    {/* <Footer/> */}
   </div>
   )
 }

@@ -13,7 +13,7 @@ const Orders = () => {
   const calculateDaysRemaining = (updatedAt) => {
     const updatedAtDate = new Date(updatedAt);
     const returnDate = new Date(updatedAtDate);
-    returnDate.setDate(updatedAtDate.getDate() + 2); // Set return date to 1 days after updatedAt
+    returnDate.setDate(updatedAtDate.getDate() + 7); // Set return date to 7 days after updatedAt
 
     const currentDate = new Date();
     const timeDiff = returnDate.getTime() - currentDate.getTime();
