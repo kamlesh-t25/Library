@@ -29,7 +29,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent }) => { // Receive setAc
           </a>
         </li>
         <li className={activeItem === 'My Store' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('My Store', 'MyStore')}>
+          <a href="#" onClick={() => handleItemClick('My Store', 'Mystore')}>
             <i className="bx bxs-shopping-bag-alt"></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>My Store</span>
           </a>

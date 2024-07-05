@@ -9,35 +9,41 @@ import { StoreContext } from '../../Context/StoreContext';
 import BookCard from '../../Components/BookCard/BookCard';
 import SampleCategory from '../../Components/FilterCard/SampleCategory';
 import Footer from '../../Components/Footer/Footer';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BooksPage = () => {
   // const [subCategory,setSubCategory]=useState('');
   const {URL,subCategory,setSubCategory,booksList} =useContext(StoreContext);//sub-category=department
   const {categoryName}=useParams();
+
+  const [departments,setDepartments]=useState([]);
+
+  useEffect(()=>{
+    const getDepartmentsName=async()=>{
+      const response=await axios.get(URL+`/library/${categoryName}`);
+      if(response.data.success){
+        console.log("Departments : ",response.data);
+        setDepartments(response.data.data);
+      }else{
+        toast.error(response.data.message);
+      }
+    }
+
+    getDepartmentsName();
+  },[categoryName])
+
+
+
   const navigate=useNavigate();
   useEffect(() => {
     document.documentElement.style.fontSize = '0.8rem';
     document.documentElement.style.overflowX = '';
   }, []);
-  const handelClick = ()=>{
-      navigate('/home');
-      document.documentElement.style.fontSize = '';
-      document.documentElement.style.overflowX = '';
-  }
   return (
   <div className="books-display">
     <Navbar/>
-    {/* <button className='home-to-button' onClick={handelClick}>Back To Home</button> */}
-    {/* <div className='bookPage-container'>
-      {Engineering.map((element,index)=>{
-        return (
-          <div key={index} className={subCategory-container ${subCategory==element.department_name ? "active-sub":""}} onClick={()=>setSubCategory(prev=>prev==element.department_name?"":element.department_name)}>
-            <h2>{element.department_name}</h2>
-          </div>
-        )
-      })}
-    </div> */}
-    <SampleCategory category={categoryName} subCategory={subCategory} setSubCategory={setSubCategory}  />
+    <SampleCategory departments={departments} category={categoryName} subCategory={subCategory} setSubCategory={setSubCategory}  />
 
 <br />
 <hr />

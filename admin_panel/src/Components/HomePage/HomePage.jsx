@@ -10,8 +10,8 @@ import Main from '../Main.jsx';
 import OrderTable from '../OrderTable.jsx';
 // import AddBook from './Components/AddBook/AddBook';
 import AddBook from '../AddBook/AddBook.jsx';
-// import Mystore from './Components/MyStore/MyStore.jsx';
-import Mystore from '../MyStore/MyStore.jsx';
+// import Mystore from './Components/Mystore/Mystore.jsx';
+import Mystore from '../Mystore/Mystore.jsx';
 import 'boxicons/css/boxicons.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -71,7 +71,7 @@ const HomePage = () => {
           {activeComponent === 'Main' && <Main />}
           {activeComponent === 'OrderTable' && <OrderTable />}
           {activeComponent === 'AddBook' && <AddBook />}
-          {activeComponent === 'MyStore' && <Mystore />}
+          {activeComponent === 'Mystore' && <Mystore />}
         </div>
       </div>
     </>

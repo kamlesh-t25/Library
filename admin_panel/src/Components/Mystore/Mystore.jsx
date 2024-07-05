@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { StoreContext } from '../../Components/Context/StoreContext';
-import BookCard from '../../Components/BookCard/BookCard';
-import './MyStore.css';
+import { StoreContext } from '../Context/StoreContext';
+import BookCard from '../BookCard/BookCard';
+import './Mystore.css';
 
 const Mystore = () => {
   const { URL, booksList } = useContext(StoreContext);

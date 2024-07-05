@@ -202,23 +202,23 @@ const StoreContextProvider=(props)=>{
       },[])
     
 
-    //only once for adding data to database once
-    // useEffect(() => {
-    //     var count=0;
-    //     const addData = async () => {
-    //       try {
-    //         for (const element of books_data) {
-    //           await axios.post(URL + "/library/books/add", element);
-    //         //   console.log(element);
-    //         count++;
-    //         }
-    //       } catch (error) {
-    //         console.error("Error adding data:", error);
-    //       }
-    //     };
-    //     addData();
-    //     console.log("Count : "+count);
-    //   }, []);
+    // only once for adding data to database once
+    useEffect(() => {
+        var count=0;
+        const addData = async () => {
+          try {
+            for (const element of books_data) {
+              await axios.post(URL + "/library/books/add", element);
+            //   console.log(element);
+            count++;
+            }
+          } catch (error) {
+            console.error("Error adding data:", error);
+          }
+        };
+        addData();
+        console.log("Count : "+count);
+      }, []);
      
 
     const contextValue={
