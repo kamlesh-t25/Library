@@ -21,6 +21,8 @@ import Cart from './Pages/Cart/Cart.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Password_reset from './Pages/Password_setup/Password_reset.jsx';
+import ResetPwd_OtpVerify from './Pages/ResetPwd_OtpVerify/ResetPwd_OtpVerify.jsx';
+import Password_reset_setPwd from './Pages/Password_reset_setPwd/Password_reset_setPwd.jsx';
 
 
 function App() {
@@ -49,11 +51,16 @@ function App() {
               <Route path='/set-password' element={<SetPwd URL={URL} />} />
               <Route path='/' element={<Register URL={URL} />} />
               <Route path='/login' element={<Login URL={URL} />} />
-              <Route path='/forgot_password' element={<Password_reset URL={URL} />} />
               <Route path='/home' element={<Home />} />
               <Route path='/orders' element={<Orders/>} />
               <Route path='/cart' element={<Cart/>} />
               <Route path='/home/:categoryName' element={<BooksPage/>} />
+              
+              {/* forgot password Routes */}
+              <Route path='/forgot_password' element={<Password_reset URL={URL} />} />
+              <Route path='/resetPwd_otpVerify' element={<ResetPwd_OtpVerify URL={URL} />} />
+              <Route path='/setNewPassword' element={<Password_reset_setPwd URL={URL} />} />
+
             </Routes>
           </div>
         </Router>

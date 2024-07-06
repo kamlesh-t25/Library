@@ -13,6 +13,7 @@ const Navbar = () => {
 
   const logoutHandler=()=>{
     localStorage.removeItem('token');
+    localStorage.removeItem('reloaded');
     setUserName(""); // Reset userName when token is cleared (logout)
             setBooksList([]); // Reset booksList when token is cleared (logout)
             setCartData({}); // Reset cartData when token is cleared (logout)

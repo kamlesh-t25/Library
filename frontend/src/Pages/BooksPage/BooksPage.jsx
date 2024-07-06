@@ -16,6 +16,7 @@ const BooksPage = () => {
   // const [subCategory,setSubCategory]=useState('');
   const {URL,subCategory,setSubCategory,booksList} =useContext(StoreContext);//sub-category=department
   const {categoryName}=useParams();
+  const [searchBookInput,setSearchInput]=useState("");
 
   const [departments,setDepartments]=useState([]);
 
@@ -47,10 +48,13 @@ const BooksPage = () => {
 
 <br />
 <hr />
+    <div className="book-search-input">
+      <input type="text" value={searchBookInput} onChange={(e)=>setSearchInput(e.target.value)} name="searchBook" id="searchBook" placeholder='Search book by title....' />
+    </div>
 <br />
 
     <div className="booksCard-container">
-      {booksList.filter(book => (book.department === subCategory || subCategory === "") && (book.category==categoryName)).map((element, index) => (
+      {booksList.filter(book => (book.department === subCategory || subCategory === "") && (book.category==categoryName) && (book.title.toLowerCase().includes(searchBookInput.toLowerCase())) ).map((element, index) => (
           <BookCard key={index} id={element._id} title={element.title} author={element.author} description={element.description} count={element.count} />
         ))}
     </div>

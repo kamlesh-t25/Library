@@ -15,6 +15,17 @@ const Home = () => {
   //     window.location.reload();
   // }, []);
 
+
+
+  // useEffect hook to reload the page on the first visit
+  useEffect(() => {
+    // Check if the page has been reloaded before
+    if (!localStorage.getItem('reloaded')) {
+      // If not, reload the page and set the flag in local storage
+      localStorage.setItem('reloaded', 'true');
+      window.location.reload();
+    }
+  }, []);
   
   return (
 <div className="home-home">

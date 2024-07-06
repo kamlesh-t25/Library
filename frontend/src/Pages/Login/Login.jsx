@@ -15,7 +15,7 @@ const Login = ({URL}) => {
             localStorage.setItem('token',response.data.token);
             toast.success("Login successfully!")
         }else{
-            navigate('/');
+            navigate('/login');
             toast.error(response.data.message);
         }
     }

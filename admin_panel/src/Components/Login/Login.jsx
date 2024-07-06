@@ -47,6 +47,7 @@ const Login = ({isVerified,setVerified}) => {
               value={email} 
               id="email" 
               placeholder="Email" 
+              autoComplete="off"
               onChange={(e) => setEmail(e.target.value)} 
             />
           </div>

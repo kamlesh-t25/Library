@@ -9,7 +9,13 @@
     margin: 10px;
 }
 @media screen and (max-width: 768px) {
-    input{
+    .INPUT input{
         width: 90%;
+    }
+}
+body.dark .books-display{
+    color: aliceblue;
+    button{
+        background-color:aquamarine;
     }
 }

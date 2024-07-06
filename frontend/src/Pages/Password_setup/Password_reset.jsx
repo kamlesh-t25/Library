@@ -5,17 +5,15 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const Password_reset = ({URL}) => {
     const navigate=useNavigate();
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const handelSubmit = async function(e){
         e.preventDefault();
-        const response=await axios.post(URL+"/library/user/login",{name, email});
+        const response=await axios.post(URL+"/library/user/resetPwd_sendOTP",{email});
         if(response.data.success){
-            navigate('/home');
-            localStorage.setItem('token',response.data.token);
-            toast.success("Login successfully!")
+            navigate('/resetPwd_otpVerify',{state:{email}});
+            toast.success(response.data.message);
         }else{
-            navigate('/');
+            navigate('/forgot_password');
             toast.error(response.data.message);
         }
     }
@@ -36,10 +34,10 @@ const Password_reset = ({URL}) => {
                         <div className="input-box">
                             <form onSubmit={ handelSubmit }>
                                 <header>Reset Password</header>
-                                <div className="input-field">
+                                {/* <div className="input-field">
                                     <input type="text" className="input" id="name" required autoComplete="off" value={name} onChange={(e)=>{setName(e.target.value)}}/>
                                     <label htmlFor="name">Name</label>
-                                </div>
+                                </div> */}
                                 <div className="input-field">
                                     <input type="email" className="input" id="email" required autoComplete="off" value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
                                     <label htmlFor="email">Email</label>
@@ -49,7 +47,7 @@ const Password_reset = ({URL}) => {
                                     <input type="submit" className="submit" value="Send OTP" />
                                 </div>
                                 <div className="signin">
-                                    <span>Already have an account? <a href="./">Sign In here</a></span>
+                                    <span>Already have an account? <a href="/">Sign In here</a></span>
                                 </div>
                             </form>
                         </div>

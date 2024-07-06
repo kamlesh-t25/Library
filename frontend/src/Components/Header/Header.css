@@ -62,19 +62,8 @@
 
 
 .header-image{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.header-image img{
   float: right;
   width: 500px;
-}
-
-.header-image img:hover{
-  /* animation: vibrate 0.5s linear infinite; */
-  /* border: 2px solid red; */
 }
 
 
@@ -143,7 +132,14 @@
 }
 
 @media (max-width:600px){
-  .header{
-    height: 35vh;
-  }
+.header{
+  height: 35vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8%
+}
+.header-text{
+  font-size: small;
+}
 }

@@ -11,6 +11,8 @@
     filter: drop-shadow(1px 1px 20px black);
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 @media (max-width:650px){
     .cardStyle{

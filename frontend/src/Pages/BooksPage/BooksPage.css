@@ -35,7 +35,25 @@
     width: 120px;
     border: 2px solid red;
   }
+
+.book-search-input{
+  border: 2px solid black;
+  width: 60%;
+  border-radius: 25px;
+}
   
+.book-search-input input{
+  padding: 8px 15px;
+  font-size: 15px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  color: red;
+}
+
+
   .bookPage-container::-webkit-scrollbar{
     display: none;
   }
