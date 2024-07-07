@@ -1,3 +1,7 @@
+// This Page is Cart page we are also using cartBookCard here....Books selected by user from booksPage will displayed here...
+// **To request a book or remove from cart click on the book**
+
+
 import React, { useContext, useState } from 'react';
 import { StoreContext } from '../../Context/StoreContext';
 import CartBookCard from '../../Components/CartBookCard/CartBookCard.jsx';

@@ -1,10 +1,11 @@
+//This is the page where user can select books ,search books by title and department name .....
+//User can only add one copy of each book in cart..if he adds more he will get error
+
 import React, { useContext, useEffect, useState } from 'react';
 import './BooksPage.css';
 import Navbar from '../../Components/Navbar/Navbar';
 import Header from '../../Components/Header/Header';
-import BookDisplay from '../../Components/BookDisplay/BookDisplay';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Engineering } from '../../assets/assets';
 import { StoreContext } from '../../Context/StoreContext';
 import BookCard from '../../Components/BookCard/BookCard';
 import SampleCategory from '../../Components/FilterCard/SampleCategory';

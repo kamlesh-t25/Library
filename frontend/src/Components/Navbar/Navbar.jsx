@@ -31,19 +31,21 @@ const Navbar = () => {
     <div className='navbar'>
       <div className="logo">
         {/* <a href="#" className='icon-size'><ion-icon name="book-outline"></ion-icon><span>eLibrary</span></a> */}
-        <a href="#" className='icon-size' onClick={()=>navigate("/home")}><span className='logo-eLibrary'>eLibrary</span></a>
+        <a className='icon-size' onClick={()=>navigate("/home")}><span className='logo-eLibrary'>eLibrary</span></a>
 
       </div>
 
       <div className="icons">
-      <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}> <a onClick={()=>window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</a> </li>
+      {/* <li className={activeLink=='home' ?"active":''} onClick={()=>handleLinkClick('home')}> <a onClick={()=>window.scrollTo({ top: 0, behavior: 'smooth' })}>Home</a> </li> */}
       {/* <li className={activeLink=='books' ?"active":''}  onClick={()=>handleLinkClick('books')}>Books</li> */}
-      <li className={activeLink=='contact' ?"active":''}  onClick={()=>handleLinkClick('contact')}><a href='#footer'>Contact</a></li>
-      <a href="#" className='icon-size' onClick={()=>navigate('/cart')}><ion-icon  name="cart-outline"></ion-icon></a>
+      <li  onClick={()=>handleLinkClick('contact')}><a href='#footer'>Contact</a></li>
+      <a className='icon-size' onClick={()=>navigate('/cart')}><ion-icon  name="cart"></ion-icon></a>
+      {/* //Order icons created by Freepik - Flaticon */}
+      <a href="" className='icon-size' onClick={()=>navigate("/orders")}><img className='orders-image-navbar' src={assets.orders_image} alt="" /></a>
       <div className="logout-popup-list">
-        <a href="#" className='icon-size'><ion-icon  name="person-outline"></ion-icon></a>
+        <a href="#" className='icon-size'><ion-icon  name="person"></ion-icon></a>
         <div className="logout-orders">
-          <p onClick={()=>navigate("/orders")}>Orders</p>
+          <p onClick={()=>navigate("/user")}>My Profile</p>
           <br />
           <p onClick={logoutHandler}>LogOut</p>
         </div>
@@ -57,5 +59,6 @@ const Navbar = () => {
 }
 import './Navbar.css'
 import { StoreContext } from '../../Context/StoreContext';
+import { assets } from '../../assets/assets';
 
 export default Navbar

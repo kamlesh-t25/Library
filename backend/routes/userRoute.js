@@ -52,9 +52,9 @@ const registerUser=async(req,res)=>{
         text:`Your OTP is ${otp}`
     };
 
-        console.log("email is :",email);
-        console.log('Email:', process.env.EMAIL);
-        console.log('Password:', process.env.PASSWORD);
+        // console.log("email is :",email);
+        // console.log('Email:', process.env.EMAIL);
+        // console.log('Password:', process.env.PASSWORD);
         console.log("OTP",otp);
 
         transporter.sendMail(mailOptions, (error, info) => {
@@ -133,8 +133,8 @@ const getUserDetails=async(req,res)=>{
 
     try {
         const user=await userModel.findOne({_id:req.body.userId});
-        console.log(user);
-        res.json({success:true,data:user.name});
+        // console.log(user);
+        res.json({success:true,data:user});
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"Error"});

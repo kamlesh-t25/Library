@@ -31,7 +31,7 @@ const getCartItems=async(req,res)=>{
     try {
         const userData=await userModel.findOne({_id:req.body.userId});
         const cartData=userData.cartData;
-        console.log(cartData);
+        // console.log(cartData);
         res.json({success:true,data:cartData});
     } catch (error) {
         console.log(error);

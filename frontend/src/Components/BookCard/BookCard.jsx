@@ -1,3 +1,5 @@
+//We are using this card in BooksPage.jsx....to display a book item and style
+
 import React, { useContext } from 'react';
 import './BookCard.css';
 import { StoreContext } from '../../Context/StoreContext';

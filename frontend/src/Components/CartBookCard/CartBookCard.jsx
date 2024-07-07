@@ -1,3 +1,5 @@
+// We are using this on CartPage 
+
 import React, { useContext } from 'react'
 import { StoreContext } from '../../Context/StoreContext'
 import axios from 'axios';

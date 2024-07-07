@@ -1,3 +1,5 @@
+//We are using this card in ExploreCategory.jsx to display category name that we got from database .....
+
 import React from 'react'
 import './Card.css';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +26,7 @@ const Card = (props) => {
         {/* <h6 class="card-subtitle mb-2 text-body-secondary">props.data.author</h6> */}
         {/* <h6 class="card-subtitle mb-2 mt-2 text-body-secondary">Availible: props.data.count copies</h6> */}
         <div className='thirdElement align-middle text-center'>
-          <button onClick={ clickHandel } className="btn btn-outline-secondary justify-end items-end bottom-0">
+          <button onClick={ clickHandel } className="btn btn-outline-secondary justify-end items-end bottom-0 explore-category-button">
             Explore Category
           </button>
         </div>

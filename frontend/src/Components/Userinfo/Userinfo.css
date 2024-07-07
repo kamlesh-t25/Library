@@ -1,0 +1,105 @@
+.mainDivision{
+    height: 100%;
+    width: 100%;
+    background-color: beige;
+    padding: 15px 0px;
+    overflow-x: hidden;
+}
+
+.user-profile-card {
+    position: relative;
+    left: 25%;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.card-header {
+    background: linear-gradient(to bottom, #4a90e2, #5e9df6);
+    height: 100px;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: -50px;
+    border: 5px solid white;
+}
+
+.user-name {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.user-description {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 10px 0;
+}
+
+.contact-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.contact-button:hover {
+    background-color: #357ab8;
+}
+
+@media (max-width: 768px) {
+    .user-profile-card {
+        width: 90%;
+        margin: 20px auto;
+        left: 0;
+    }
+
+    .user-name {
+        font-size: 1.25rem;
+    }
+
+    .user-description {
+        font-size: 0.85rem;
+    }
+
+    .contact-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-profile-card {
+        width: 95%;
+        margin: 10px auto;
+        left: 0;
+    }
+
+    .user-name {
+        font-size: 1rem;
+    }
+
+    .user-description {
+        font-size: 0.75rem;
+    }
+
+    .contact-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}

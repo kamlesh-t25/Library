@@ -1,3 +1,5 @@
+// This is the component that we are using on home page to display category and mapping books according to them
+
 import React from 'react';
 import './SampleCategory.css';
 

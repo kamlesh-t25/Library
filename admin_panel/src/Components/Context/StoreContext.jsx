@@ -24,7 +24,7 @@ const StoreContextProvider=(props)=>{
         const response=await axios.get(URL+"/library/orders/getOrders");
         if(response.data.success){
             setOrders(response.data.data);
-            console.log(response.data.data);
+            // console.log(response.data.data);
         }else {
             alert(response.data.message);
         }
@@ -32,13 +32,13 @@ const StoreContextProvider=(props)=>{
 
     const getUsers=async()=>{
         const response =await axios.get(URL+"/library/user/get");
-        console.log(response.data.data);
+        // console.log(response.data.data);
         setUsers(response.data.data);
     }
 
     const getUserName=async(userId)=>{
         const user=users.find((e)=>e._id==userId);
-        console.log(user.name);
+        // console.log(user.name);
         return user.name;
     }
 
@@ -55,6 +55,16 @@ const StoreContextProvider=(props)=>{
 
     const deleteBook=async(id)=>{
         const response=await axios.post(URL+"/library/books/delete",{id});
+        if(response.data.success){
+            toast.success(response.data.message);
+            getBooksList();
+        }else{
+            toast.error(response.data.message);
+        }
+    }
+
+    const addBook=async(bookData)=>{
+        const response=await axios.post(URL+"/library/books/add",bookData);
         if(response.data.success){
             toast.success(response.data.message);
             getBooksList();
@@ -90,7 +100,7 @@ const StoreContextProvider=(props)=>{
         URL,
         orders,booksList,deleteBook,
         getUserName,
-        statusChange
+        statusChange,addBook
     }
 
 

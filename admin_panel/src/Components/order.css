@@ -14,6 +14,13 @@
     padding: 24px;
 }
 
+.orderItem_hr{
+    width: 100%;
+    background-color: black;
+    height: 2px;
+    margin: 5px 0px;
+}
+
 .order-item-userName {
     color: tomato;
     font-size: 1.5rem;

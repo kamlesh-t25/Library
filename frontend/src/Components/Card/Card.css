@@ -17,6 +17,11 @@
     /* box-shadow:black 10px 10px 10px; */
     /* filter: drop-shadow(1px 1px 20px black); */
 }
+
+/* .explore-category-button{
+    
+} */
+
 .cardStyle:hover {
     transform: scale(1.05);
   }

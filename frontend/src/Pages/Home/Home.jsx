@@ -1,24 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Home.css'
 import Header from '../../Components/Header/Header.jsx'
 import ExploreCategory from '../../Components/ExploreCategory/ExploreCategory.jsx'
-import { category_list } from '../../assets/assets.jsx';
 import Footer from '../../Components/Footer/Footer.jsx';
-import BookDisplay from '../../Components/BookDisplay/BookDisplay.jsx';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
 import Card from '../../Components/Card/Card.jsx';
+import { StoreContext } from '../../Context/StoreContext.jsx';
 const Home = () => {
   const [category,setCategory]=useState("All");
   document.documentElement.style.fontSize = '';
   document.documentElement.style.overflowX = '';
-  // useEffect(() => {
-  //     window.location.reload();
-  // }, []);
-
-
+  
+  const {category_list}=useContext(StoreContext);
 
   // useEffect hook to reload the page on the first visit
   useEffect(() => {
+    console.log("Home :",category_list);
     // Check if the page has been reloaded before
     if (!localStorage.getItem('reloaded')) {
       // If not, reload the page and set the flag in local storage
@@ -36,10 +33,6 @@ const Home = () => {
       <Header/>
       <hr />
       <ExploreCategory category_list={category_list} category={category} setCategory={setCategory} />
-      {/* <BookDisplay category={category}/> */}
-      {/* <Card/> */}
-      {/* <Card/> */}
-      {/* <Footer/> */}
     </div>
   </div>
   <Footer/>

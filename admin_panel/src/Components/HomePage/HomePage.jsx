@@ -64,7 +64,7 @@ const HomePage = ({isVerified,setVerified}) => {
   return (
     <>
       {/* <ToastContainer position="top-right" /> */}
-      <div>
+      <div className='homePage_container'>
         <Sidebar isVerified={isVerified} setVerified={setVerified} isSidebarVisible={isSidebarVisible} setActiveComponent={setActiveComponent} />
         <div id="content" style={{ left: isSidebarVisible ? '280px' : '60px' }}>
           <Navbar toggleSidebar={toggleSidebar} isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />

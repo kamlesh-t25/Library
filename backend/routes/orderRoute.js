@@ -4,13 +4,13 @@ import orderModel from "../models/orderModel.js";
 const requestBook=async(req,res)=>{
     const {userId,bookId}=req.body;
     try {
-        let order=await orderModel.findOne({userId,"items.status":"Pending"});
+        let order=await orderModel.findOne({userId});
 
         if(order){
             let isExist=order.items.find((i)=>i.bookId==bookId);
-            console.log("Order exist");
+            // console.log("Order exist");
             if(isExist){
-                console.log("111");
+                // console.log("111");
                 return res.json({success:false,message:"Book is already requested or approved !"})
             }
         }
@@ -38,7 +38,7 @@ const changeStatus = async (req, res) => {
         let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
-            console.log(userId);
+            // console.log(userId);
             return res.status(404).json({ success: false, message: "Order or book not found" });
         }
 
@@ -73,7 +73,7 @@ const changeReturnStatus = async (req, res) => {
         let order = await orderModel.findOne({ userId, "items.bookId": bookId });
 
         if (!order) {
-            console.log(`Order not found for userId: ${userId}`);
+            // console.log(`Order not found for userId: ${userId}`);
             return res.status(404).json({ success: false, message: "Order or book not found" });
         }
         const item = order.items.find(item => item.bookId === bookId);
@@ -123,5 +123,10 @@ const getOrders=async(req,res)=>{
         res.json({success:false,message:"ERROR"});
     }
 }
+
+
+
+
+
 
 export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus};

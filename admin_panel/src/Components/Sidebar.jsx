@@ -47,12 +47,6 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Requests</span>
           </a>
         </li>
-        <li className={activeItem === 'Message' ? 'active' : ''}>
-          <a href="#" onClick={() => handleItemClick('Message', 'Main')}>
-            <i className="bx bxs-message-dots"></i>
-            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Message</span>
-          </a>
-        </li>
       </ul>
       <ul className="side-menu">
         <li>

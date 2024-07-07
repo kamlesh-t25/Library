@@ -23,17 +23,20 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Password_reset from './Pages/Password_setup/Password_reset.jsx';
 import ResetPwd_OtpVerify from './Pages/ResetPwd_OtpVerify/ResetPwd_OtpVerify.jsx';
 import Password_reset_setPwd from './Pages/Password_reset_setPwd/Password_reset_setPwd.jsx';
+import Userinfo from './Components/Userinfo/Userinfo.jsx';
 
 
 function App() {
   const { URL } = useContext(StoreContext);
   const [loading,setLoading]=useState(false);
 
+
+  // console.log("env: "+import.meta.env.VITE_WEATHER_APP_API);
   useEffect(()=>{
     setLoading(true);
     setTimeout(()=>{
       setLoading(false);
-    },1000);
+    },2000);
   },[])
   return (
     <div className='app-loading'>
@@ -51,11 +54,11 @@ function App() {
               <Route path='/set-password' element={<SetPwd URL={URL} />} />
               <Route path='/' element={<Register URL={URL} />} />
               <Route path='/login' element={<Login URL={URL} />} />
-              <Route path='/home' element={<Home />} />
-              <Route path='/orders' element={<Orders/>} />
-              <Route path='/cart' element={<Cart/>} />
-              <Route path='/home/:categoryName' element={<BooksPage/>} />
-              
+              <Route path='/home' element={<ProtectedRoute component={Home}/>} />
+              <Route path='/orders' element={<ProtectedRoute component={Orders} />} />
+              <Route path='/cart' element={<ProtectedRoute component={Cart} />} />
+              <Route path='/home/:categoryName' element={<ProtectedRoute component={BooksPage} />} />
+              <Route path='/user' element={<ProtectedRoute component={Userinfo} />} />
               {/* forgot password Routes */}
               <Route path='/forgot_password' element={<Password_reset URL={URL} />} />
               <Route path='/resetPwd_otpVerify' element={<ResetPwd_OtpVerify URL={URL} />} />
@@ -76,8 +79,8 @@ function ProtectedRoute({ component: Component, URL }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      navigate('/home');
+    if (!localStorage.getItem('token')) {
+      navigate("/login");
     }
   }, [navigate]);
 

@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+//This component is being used in homePage section 
+
+import React, { useContext, useEffect } from 'react'
 import './ExploreCategory.css';
 import { StoreContext } from '../../Context/StoreContext';
 import Card from '../Card/Card';
@@ -12,7 +14,7 @@ const ExploreCategory = ({category_list,category,setCategory}) => {
         <div className="card-display-section">
           {
             category_list.map((element,index)=>{
-              return (<Card key={index} name={element.category_name} />)
+              return (<Card key={index} name={element} />)
             })
           }
 

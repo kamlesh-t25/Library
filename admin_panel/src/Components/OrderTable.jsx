@@ -63,6 +63,7 @@ const OrderTable = () => {
                                     const book = booksList.find((book) => book._id === item.bookId);
                                     const itemStatus = status[`${order.userId}-${item.bookId}`] || item.status;
                                     return itemStatus === 'Pending' ? (
+                                    <>
                                         <div key={itemIndex} className="book-item">
                                             <p>{item.bookId}</p>
                                             <p>{book?.title || 'Loading...'}</p>
@@ -78,6 +79,8 @@ const OrderTable = () => {
                                                 <option value="Approve">Approve</option>
                                             </select>
                                         </div>
+                                        {/* <hr className='orderItem_hr'/>   */}
+                                    </>
                                     ) : null;
                                 })}
                             </ul>
@@ -101,7 +104,7 @@ const OrderTable = () => {
                                     <div key={itemIndex} className="book-item">
                                         <p>{item.bookId}</p>
                                         <p>{book?.title || 'Loading...'}</p>
-                                        <p>{book?.author || 'Loading...'}</p>
+                                        <p className='book-item-authorName'>{book?.author || 'Loading...'}</p>
                                         <p>Count: {book?.count || 'Loading'}</p>
                                         <select
                                             className="select-status-options order-item-status"

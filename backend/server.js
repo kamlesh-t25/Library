@@ -238,7 +238,7 @@ app.get("/library/:category",async(req,res)=>{
   
   try {
     // Connect to MongoDB
-    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    // const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
     await client.connect();
 
     console.log('Connected successfully to MongoDB');
@@ -252,13 +252,41 @@ app.get("/library/:category",async(req,res)=>{
     if (category) {
         res.send({success:true,data:category.departments});
     } else {
-      res.status(404).json({success:false, message: 'Category not found' });
+      res.status(404).json({success:false, message: 'Category not found 2' });
     }
 
     // Close the connection
     await client.close();
   } catch (err) {
     console.error(err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+})
+
+
+//we ca not define this route as "/library/getCategories" ..because it will give 404 error because of "/library/:category" route
+app.get("/library/get/categories",async(req,res)=>{
+  try {
+    // const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    await client.connect();
+
+    console.log('Connected successfully to MongoDB 2');
+
+    const database = client.db(dbName);
+    const collection = database.collection('category_department');
+
+    // Find the category document
+    const categories = await collection.find({}).toArray();
+    if (categories.length > 0) {
+        res.send({success:true,data:categories});
+    } else {
+      res.status(404).json({success:false, message: 'Categories array not found' });
+    }
+
+    // Close the connection
+    await client.close();
+  } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Internal server error' });
   }
 })

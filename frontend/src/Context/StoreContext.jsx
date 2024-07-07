@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { books_data } from "../assets/assets";
+// import { books_data } from "../assets/assets";
 // import { food_list } from "../assets/assets";
 export const StoreContext=createContext(null);
 
@@ -9,19 +9,31 @@ const StoreContextProvider=(props)=>{
     const URL="http://localhost:4000";
 
     const [token,setToken]=useState('');
+    const [category_list,setCategoryList]=useState([]);
     const [subCategory,setSubCategory]=useState('');
     const [booksList,setBooksList]=useState([]);
     const [cartData,setCartData]=useState({});
     const [orders,setOrders]=useState([]);
     const [userName,setUserName]=useState("");
+    const [userEmail,setUserEmail]=useState("");
     const [weatherData,setWeatherData]=useState(false);
     // const [users,setUsers]=useState([]);
     
 
     const getUserName=async()=>{
         let response=await axios.post(URL+"/library/user/getUser",{},{headers:{token}});
-        console.log("User Data : -"+response.data.data);
-        setUserName(response.data.data);
+        if(response.data.success){
+            const userData = response.data.data;
+            // console.log("User Data: ", JSON.stringify(userData, null, 2));
+
+            const userName = userData.name;
+            const userEmail = userData.email;
+
+            // console.log("User Name: " + userName);
+            // console.log("User Email: " + userEmail);
+            setUserName(userName);
+            setUserEmail(userEmail);
+        }
     }
 
     useEffect(() => {
@@ -62,7 +74,7 @@ const StoreContextProvider=(props)=>{
 
     const getBooksList=async()=>{
         const response =await axios.get(URL+"/library/books/list");
-        console.log("Response: - "+response.data)
+        // console.log("Response: - "+response.data);
         if(response.data.success){
             setBooksList(response.data.data);
         }else{
@@ -70,10 +82,27 @@ const StoreContextProvider=(props)=>{
         }
     }
 
+    const getCategory_list=async()=>{
+        let response=await axios.get(URL+"/library/get/categories");
+        if(response.data.success){
+            // console.log("Categories : ",response.data.data);
+            const categoryNames=response.data.data.map(item=>item.category);
+            console.log(categoryNames);
+            setCategoryList(categoryNames);
+        }
+    }
+
+    useEffect(()=>{
+        const fetchData = async () => {
+            await getCategory_list();
+          };
+        fetchData();
+        // console.log("Await : ",category_list);
+    },[])
 
     useEffect(() => {
-        console.log("Books List updated:", booksList);
-    }, [booksList]);
+        console.log("Updated category list: ", category_list);
+      }, [category_list]);
 
 
     //cart function
@@ -115,7 +144,7 @@ const StoreContextProvider=(props)=>{
 
 
     useEffect(()=>{
-        console.log("CartData updated : -"+cartData);
+        // console.log("CartData updated : -"+cartData);
         getUserOrder();
     },[cartData])
 
@@ -123,7 +152,7 @@ const StoreContextProvider=(props)=>{
     //functions to manage orders
     const requestBook=async(bookId)=>{
         const response=await axios.post(URL+"/library/orders/requestBook",{bookId},{headers:{token}});
-        console.log(response);
+        // console.log(response);
         if(response.data.success){
             toast.success(response.data.message);
             getUserOrder();
@@ -135,7 +164,7 @@ const StoreContextProvider=(props)=>{
     }
 
     const changeStatus=async(bookId)=>{
-        console.log("BookId : -"+bookId);
+        // console.log("BookId : -"+bookId);
         const response=await axios.post(URL+"/library/orders/returnStatus",{bookId},{headers:{token}});
         getUserOrder();
         return response;
@@ -163,8 +192,8 @@ const StoreContextProvider=(props)=>{
     const getUserOrder=async()=>{
         const response=await axios.post(URL+"/library/orders/userOrder",{},{headers:{token}});
         setOrders(response.data.data);
-        console.log("Set orders :"+ orders);
-        console.log("User order : -"+JSON.stringify(response.data.data, null, 2));
+        // console.log("Set orders :"+ orders);
+        // console.log("User order : -"+JSON.stringify(response.data.data, null, 2));
     }
 
     useEffect(() => {
@@ -177,13 +206,10 @@ const StoreContextProvider=(props)=>{
       //weather api
       const getWeatherData=async()=>{
         try {
-            const city="Dharwad";
-            const api_key="9706f9e6c7b105b01116287e836fde6c";
-            // const url=`https://api.openweathermap.org/data/2.5/weather?q=${import.meta.env.VITE_WEATHER_CITY_NAME}&appid=${import.meta.env.VITE_WEATHER_APP_API}`
-            const url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`;
+            const url=`https://api.openweathermap.org/data/2.5/weather?q=${import.meta.env.VITE_WEATHER_CITY_NAME}&units=metric&appid=${import.meta.env.VITE_WEATHER_APP_API}`;
             const response =await fetch(url);
             const data=await response.json();
-            console.log("Weather Data: ",data);
+            // console.log("Weather Data: ",data);
             setWeatherData({
                 humidity:data.main.humidity,
                 windSpeed:data.wind.speed,
@@ -203,34 +229,34 @@ const StoreContextProvider=(props)=>{
     
 
     // only once for adding data to database once
-    useEffect(() => {
-        var count=0;
-        const addData = async () => {
-          try {
-            for (const element of books_data) {
-              await axios.post(URL + "/library/books/add", element);
-            //   console.log(element);
-            count++;
-            }
-          } catch (error) {
-            console.error("Error adding data:", error);
-          }
-        };
-        addData();
-        console.log("Count : "+count);
-      }, []);
+    // useEffect(() => {
+    //     var count=0;
+    //     const addData = async () => {
+    //       try {
+    //         for (const element of books_data) {
+    //           await axios.post(URL + "/library/books/add", element);
+    //         //   console.log(element);
+    //         count++;
+    //         }
+    //       } catch (error) {
+    //         console.error("Error adding data:", error);
+    //       }
+    //     };
+    //     addData();
+    //     console.log("Count : "+count);
+    //   }, []);
      
 
     const contextValue={
         URL,
         weatherData,
-        token,setToken,userName,setUserName,
+        token,setToken,userName,setUserName,userEmail,
         subCategory,setSubCategory,
         booksList,setBooksList,
         addToCart,removeFromCart,getCartData,setCartData,
         cartData,
         requestBook,changeStatus,getUserOrder,orders,setOrders, 
-        returnBook
+        returnBook,category_list
 
 
     }

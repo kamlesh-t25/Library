@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* margin-top: 125px; */
   }
   
   .form-content {
@@ -91,5 +92,13 @@ body {
     }
     .form-group{
         margin: 2px;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin-top: 100px;
     }
 }
