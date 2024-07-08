@@ -52,8 +52,8 @@ function App() {
               {/* <Route path='/login' element={<ProtectedRoute component={Login} URL={URL} />} /> */}
               <Route path='/verify-otp' element={<SendOtp URL={URL} />} />
               <Route path='/set-password' element={<SetPwd URL={URL} />} />
-              <Route path='/' element={<Register URL={URL} />} />
-              <Route path='/login' element={<Login URL={URL} />} />
+              <Route path='/register' element={<Register URL={URL} />} />
+              <Route path='/' element={<Login URL={URL} />} />
               <Route path='/home' element={<ProtectedRoute component={Home}/>} />
               <Route path='/orders' element={<ProtectedRoute component={Orders} />} />
               <Route path='/cart' element={<ProtectedRoute component={Cart} />} />

@@ -33,7 +33,7 @@ const HomePage = ({isVerified,setVerified}) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 770) {
+      if (window.innerWidth <= 900) {
         setIsSidebarVisible(false); 
       } else {
         setIsSidebarVisible(true); 

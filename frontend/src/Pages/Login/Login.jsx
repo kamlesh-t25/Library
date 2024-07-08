@@ -7,6 +7,14 @@ const Login = ({URL}) => {
     const navigate=useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('token');
+        if (storedToken) {
+            navigate('/home');
+        }
+    }, []);
+
     const handelSubmit = async function(e){
         e.preventDefault();
         const response=await axios.post(URL+"/library/user/login",{email,password});
@@ -15,7 +23,7 @@ const Login = ({URL}) => {
             localStorage.setItem('token',response.data.token);
             toast.success("Login successfully!")
         }else{
-            navigate('/login');
+            navigate('/');
             toast.error(response.data.message);
         }
     }
@@ -54,7 +62,7 @@ const Login = ({URL}) => {
                                     <input type="submit" className="submit" value="Sign In" />
                                 </div>
                                 <div className="signin">
-                                    <span>Don't have an account? <a href="/">Sign Up here</a></span> <br></br>
+                                    <span>Don't have an account? <a href="/register">Sign Up here</a></span> <br></br>
                                     <span >Forgot your password? <a href="/forgot_password" style={{color:"orange"}}>Reset it here</a></span>
                                 </div>
                             </form>

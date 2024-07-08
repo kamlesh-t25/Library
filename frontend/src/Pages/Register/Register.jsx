@@ -19,13 +19,6 @@ const Register = ({URL}) => {
     };
 
 
-    useEffect(() => {
-        const storedToken = localStorage.getItem('token');
-        if (storedToken) {
-            navigate('/home');
-        }
-    }, []);
-
     const handleSubmit = async (e) => {
         // console.log("clicked");
         e.preventDefault();
@@ -105,7 +98,7 @@ const Register = ({URL}) => {
                                     <input type="submit" className="btn btn-primary submit" value="Send OTP" />
                                 </div>
                                 <div className="signin">
-                                    <span>Already have an account? <a href="/login">Sign In here</a></span>
+                                    <span>Already have an account? <a href="/">Sign In here</a></span>
                                 </div>
                             </form>
                         </div>

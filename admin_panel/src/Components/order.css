@@ -21,6 +21,23 @@
     margin: 5px 0px;
 }
 
+.options-dataSet{
+    display: flex;
+    column-gap: 15px;
+}
+
+.options-dataSet button{
+    padding: 8px 15px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.options-dataSet button:hover{
+    background-color: red;
+}
+
 .order-item-userName {
     color: tomato;
     font-size: 1.5rem;
@@ -28,7 +45,7 @@
     font-style: unset;
 }
 
-.book-item {
+.book-item ,.book-item-approved{
     text-align: center;
 }
 
@@ -44,6 +61,13 @@
     column-gap: 15px;
 }
 
+.book-item-list .book-item-approved {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 0.5fr;
+    margin-bottom: 15px;
+    column-gap: 15px;
+}
+
 .order-item-status {
     color: red;
     margin-left: 15px;
@@ -55,7 +79,7 @@
     background: var(--light);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1200px) {
     .book-item-list .book-item {
         grid-template-columns: 1fr 1.5fr 0.5fr 0.5fr;
     }
@@ -65,12 +89,41 @@
     }
 }
 
-@media (max-width: 600px) {
+
+@media (max-width: 1200px) {
+    .book-item-list .book-item-approved {
+        grid-template-columns: 1fr 1.5fr 1fr;
+    }
+
+    .book-item-list .book-item-approved .book-item-authorName {
+        display: none;
+    }
+}
+
+
+
+
+
+@media (max-width: 700px) {
     .order-item-userName {
         font-size: 1.2rem;
     }
 
     .book-item-list .book-item {
+		display: block;
+		padding: 10px;
+        column-gap: 10px;
+        row-gap: 10px;
+		border: 2px solid black;
+		border-radius: 5px;
+    }
+
+    .book-item-list .book-item p,.book-item-list .book-item-approved p{
+        padding: 5px 0px;
+        /* color: green; */
+    }
+
+    .book-item-list .book-item-approved {
 		display: block;
 		padding: 10px;
         column-gap: 10px;
@@ -88,8 +141,10 @@
 	}
 
     .select-status-options {
-        margin-left: 0;
-        width: 100%;
+        margin: 10px;
+        /* width: 100%; */
+        /* width: 20%; */
+        max-width: fit-content;
 		border: 2px solid black;
 		padding: 2px;
 		border-radius: 20px;

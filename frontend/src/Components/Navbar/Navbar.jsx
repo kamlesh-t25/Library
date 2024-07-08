@@ -18,7 +18,7 @@ const Navbar = () => {
             setBooksList([]); // Reset booksList when token is cleared (logout)
             setCartData({}); // Reset cartData when token is cleared (logout)
             setOrders([]);
-    navigate('/login');
+    navigate('/');
   }
 
   const ordersClickHandler=()=>{
