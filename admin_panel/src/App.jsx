@@ -22,10 +22,10 @@ const App = () => {
     <Router>
       <Routes>
         <Route path='/' element={<Login isVerified={isVerified} setVerified={setVerified} />} />
-        {/* <Route path="/home" element={ isVerified ? <HomePage isVerified={isVerified} setVerified={setVerified} /> :
+        <Route path="/home" element={ isVerified ? <HomePage isVerified={isVerified} setVerified={setVerified} /> :
       (<Navigate to="/" />)
-      } /> */}
-        <Route path='/home' element={<HomePage isVerified={isVerified} setVerified={setVerified} />} />
+      } />
+        {/* <Route path='/home' element={<HomePage isVerified={isVerified} setVerified={setVerified} />} /> */}
       </Routes>
     </Router>
     </div>
