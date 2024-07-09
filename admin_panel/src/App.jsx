@@ -25,7 +25,7 @@ const App = () => {
         setVerified(false);
       }
     }
-  }, []);
+  }, [isVerified]);
 
   return (
     <>

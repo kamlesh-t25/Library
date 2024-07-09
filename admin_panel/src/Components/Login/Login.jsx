@@ -12,11 +12,13 @@ const Login = ({isVerified,setVerified}) => {
   const { URL} = useContext(StoreContext);
   const navigate=useNavigate();
 
-  useEffect(()=>{
-    if(localStorage.getItem('adminState')){
+  useEffect(() => {
+    const adminState = localStorage.getItem('adminState');
+    if (adminState) {
       navigate('/home');
     }
-  },[])
+  }, [navigate]);
+
 
 
   const handleSubmit = async (e) => {
@@ -27,13 +29,13 @@ const Login = ({isVerified,setVerified}) => {
       const response = await axios.post(`${URL}/library/admins`, { email, password });
       if (response.data.success) {
         // console.log("111");
-        navigate("/home");
         toast.success(response.data.message);
-        localStorage.setItem('adminState', 'true');
-        localStorage.setItem('loginTimestamp', new Date().getTime());
+        await localStorage.setItem('adminState', 'true');
+        await localStorage.setItem('loginTimestamp', new Date().getTime());
+        navigate("/home");
         // setVerified(!isVerified);
       } else {
-        console.log("22211");
+        // console.log("22211");
         toast.error(response.data.message);
       }
     } catch (error) {

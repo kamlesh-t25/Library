@@ -12,10 +12,10 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
   };
 
   const logoutHandler=()=>{
-    navigate("/");
     localStorage.removeItem('adminState');
     localStorage.removeItem('loginTimestamp');
     setVerified(false);
+    navigate("/");
   }
 
   return (

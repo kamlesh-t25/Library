@@ -143,24 +143,63 @@ online-library-management/
 
 ## Frontend:
 
-- All routes have been protected using a token that is stored in local storage. We use a function that checks for the token in local storage. If the token exists, the function returns the route; otherwise, it redirects to the login page.
-- We have used the toast library to handle notification alert popups.
-- Users have options when they land on the `/` route. They can either log in directly if they are registered users, or they can register if they are new to our platform. A forgot password page is also provided if the user forgets their password.
-- **Sign Up page:** Users must enter their name and institute's email ID to receive an email for OTP verification. The email is sent using the `nodemailer` package. The name and email ID are sent to the backend in an array to match the OTP generated in the backend.
-- **Setup Password page:** Once the OTP is verified, the user is supposed to set a password for their account and register the account.
-- **Reset Password page:** Users are supposed to enter the registered email ID to receive an OTP to reset the password. Once the OTP is verified, the user can set up a new password.
-- **Sign In page:** Once the user has registered successfully, they can log in to the website using their credentials. After a successful login, a token will be stored in local storage so that the next time the user accesses the `/` route, they will be redirected to the home page of the website.
+- **Route Protection:** All routes are protected using a token stored in local storage. If the token exists, the route is accessible; otherwise, users are redirected to the login page.
+  
+- **Notification Handling:** The toast library is used for displaying notification alerts.
+
+- **User Options on Landing (/):** 
+  - Users can log in if they are registered.
+  - New users can register.
+  - Forgot password functionality is provided.
+
+- **Sign Up Page:** 
+  - Users enter their name and institute's email ID.
+  - Email with OTP verification is sent using nodemailer.
+  - Name and email ID are sent to the backend for OTP verification.
+
+- **Setup Password Page:** 
+  - After OTP verification, users set a password and register their account.
+
+- **Reset Password Page:** 
+  - Users enter their registered email ID to receive an OTP for password reset.
+  - After OTP verification, users can set a new password.
+
+- **Sign In Page:** 
+  - Registered users can log in.
+  - Successful login stores a token in local storage for subsequent access.
+
 - **Home Page:** 
+  - Divided into Navbar, Header, Category Area, and Footer.
+  - **Navbar:** Contains website name, cart, orders, user profile icon, and logout button.
+  - **Header:** Displays a welcome message with the user's name and an image.
+  - **Category Area:** Displays category cards with an "Explore Category" button leading to the Book Page.
+  - **Footer:** Institute information and communication details, including weather information.
+
+- **Book Page:** 
+  - Displays books based on selected categories.
+  - Filter cards for sub-categories and a search bar for text-based filtering.
+  - Each book card includes details like title, description, author, copies available, and an "Add to Cart" button.
+
+- **Cart Page:** 
+  - Displays books added to the cart.
+  - Each book card in the cart has options to remove or request the book from the admin.
+
+- **Orders Page:** 
+  - Displays requested books and books assigned by admin.
+  - Book reminder timer for return deadlines.
+  - Button to return assigned books and increase the count in the database.
 
 
 ### Backend:
-We have defined models for users, books, and orders. For the admin panel, we are not using any model. Instead, we are directly connecting our backend to MongoDB to retrieve the required information (email and password) for login, which is defined in "server.js".
 
-The models are located in a folder named "models." Their functions, specifying how they work on particular routes, are defined in the "routes" folder, and the route names are in the "controllers" folder. These components are all combined in "server.js."
+- We have defined models for users, books, and orders. For the admin panel, we are not using any model. Instead, we are directly connecting our backend to MongoDB to retrieve the required information (email and password) for login, which is defined in "server.js".
 
-The OrderModel is connected to each user via the userId, which is stored as _id in OrderModel. The BookModel is used for updating, deleting, or adding books in the database.
+- The models are located in a folder named "models." Their functions, specifying how they work on particular routes, are defined in the "routes" folder, and the route names are in the "controllers" folder. These components are all combined in "server.js."
 
-Both Frontend and admin_panel are connected to backend via **URL="http://localhost:4000"** that is provided in context.js file .
+- The OrderModel is connected to each user via the userId, which is stored as _id in OrderModel. The BookModel is used for updating, deleting, or adding books in the database.
+
+- Both Frontend and admin_panel are connected to backend via URL="http://localhost:4000" that is provided in context.js file .
+
 
 ### Admin Panel:
 

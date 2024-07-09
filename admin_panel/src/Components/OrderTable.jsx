@@ -18,7 +18,7 @@ const OrderTable = () => {
                     }
                 }
             }
-            await setUserNames((prevNames) => ({ ...prevNames, ...names }));
+            setUserNames((prevNames) => ({ ...prevNames, ...names }));
         };
 
         fetchUserNames();
