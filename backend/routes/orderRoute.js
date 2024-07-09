@@ -125,8 +125,17 @@ const getOrders=async(req,res)=>{
 }
 
 
+const deleteUserOrders=async(req,res)=>{
+    const {userId}=req.body;
+    try {
+        let userOrder=await orderModel.findOneAndDelete({userId});
+        res.json({success:true,data:"User Orders deleted"});
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"ERROR"});
+    }
+}
 
 
 
-
-export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus};
+export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus,deleteUserOrders};

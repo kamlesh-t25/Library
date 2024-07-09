@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const Register = ({URL}) => {
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
-    const [error, setError] = useState('');
+    // const [error, setError] = useState('');
     
     const navigate = useNavigate();
 
@@ -21,10 +21,10 @@ const Register = ({URL}) => {
 
     const handleSubmit = async (e) => {
         // console.log("clicked");
-        e.preventDefault();
+        e.preventDefault(); 
 
         if (validateEmail(email)) {
-            setError('');
+            // setError('');
             // Proceed with form submission or further processing
             const response=await axios.post(URL+"/library/user/register",{name,email});
             if(response.data.success){
@@ -38,9 +38,8 @@ const Register = ({URL}) => {
 
             console.log('Email is valid:', email);
         } else {
-            setError('Invalid email format. Please enter a valid IITDH email!');
-            console.log('error');
-            toast.error(error);
+            // setError('Invalid email format. Please enter a valid IITDH email!');
+            toast.error('Invalid email format. Please enter a valid IITDH email!');
         }
 
 

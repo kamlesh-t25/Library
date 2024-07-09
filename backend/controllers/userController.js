@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUserDetails, getUsers, loginUser, registerUser, resetPwd_EmailSending, resetPwd_otpVerify, resetPwd_updateUserPwd, setPassword, verifyOtp } from '../routes/userRoute.js';
+import { deleteUser, getUserDetails, getUsers, loginUser, registerUser, resetPwd_EmailSending, resetPwd_otpVerify, resetPwd_updateUserPwd, setPassword, verifyOtp } from '../routes/userRoute.js';
 import authMiddleware from '../auth/auth.js';
 
 const userRouter=express.Router();
@@ -10,6 +10,7 @@ userRouter.post('/saveUser',setPassword);
 userRouter.post('/login',loginUser);
 userRouter.post("/getUser",authMiddleware,getUserDetails);
 userRouter.get("/get",getUsers);
+userRouter.post("/deleteUser",deleteUser);
 
 userRouter.post("/resetPwd_sendOTP",resetPwd_EmailSending);
 userRouter.post("/resetPwd_verifyOTP",resetPwd_otpVerify);

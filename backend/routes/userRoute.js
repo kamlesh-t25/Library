@@ -230,4 +230,16 @@ const resetPwd_updateUserPwd = async (req, res) => {
 };
 
 
-export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails,getUsers,resetPwd_EmailSending,resetPwd_otpVerify,resetPwd_updateUserPwd};
+
+const deleteUser=async(req,res)=>{
+    try {
+        const response=await userModel.findByIdAndDelete({_id:req.body.userId});
+        res.json({ success: true, message: "User deleted" });
+    } catch (error) {
+        console.error("Error in saving user:", error);
+        res.json({ success: false, message: "Error in deleting user" });
+    }
+}
+
+
+export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails,getUsers,resetPwd_EmailSending,resetPwd_otpVerify,resetPwd_updateUserPwd,deleteUser};

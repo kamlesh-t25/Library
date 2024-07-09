@@ -13,10 +13,12 @@ const OrderTable = () => {
             for (const order of orders) {
                 if (!userNames[order.userId]) {
                     const name = await getUserName(order.userId);
-                    names = { ...names, [order.userId]: name };
+                    if(name){
+                        names = { ...names, [order.userId]: name };
+                    }
                 }
             }
-            setUserNames((prevNames) => ({ ...prevNames, ...names }));
+            await setUserNames((prevNames) => ({ ...prevNames, ...names }));
         };
 
         fetchUserNames();
@@ -67,8 +69,8 @@ const OrderTable = () => {
     return (
         <div className="table-data">
             <div className="options-dataSet">
-                <button> <a href="#requests-section" style={{color:"black"}} >Approved Orders</a> </button>
-                <button> <a href="#approvedrequest-section" style={{color:"black"}} >Order Requests</a> </button>
+                <button> <a href="#requests-section" style={{color:"black"}} >Order Requests</a> </button>
+                <button> <a href="#approvedrequest-section" style={{color:"black"}} >Approved Orders</a> </button>
                 <button> <a href="#delayedreturn-section" style={{color:"black"}} >Delayed Returns</a> </button>
             </div>
             <div className="orders-data" id='requests-section'>
@@ -86,7 +88,7 @@ const OrderTable = () => {
                                     const itemStatus = status[`${order.userId}-${item.bookId}`] || item.status;
                                     return itemStatus === 'Pending' ? (
                                     <>
-                                        <div key={itemIndex} className="book-item">
+                                        <div key={`${order._id}-${item.bookId}`} className="book-item">
                                             <p>{item.bookId}</p>
                                             <p>{book?.title || 'Loading...'}</p>
                                             
@@ -124,7 +126,7 @@ const OrderTable = () => {
                                 const book = booksList.find((book) => book._id === item.bookId);
                                 const itemStatus = status[`${order.userId}-${item.bookId}`] || item.status;
                                 return itemStatus === 'Approve' ? (
-                                    <div key={itemIndex} className="book-item-approved">
+                                    <div key={`${order._id}-${item.bookId}`} className="book-item-approved">
                                         <p>{item.bookId}</p>
                                         <p>{book?.title || 'Loading...'}</p>
                                         <p className='book-item-authorName'>{book?.author || 'Loading...'}</p>
@@ -152,7 +154,7 @@ const OrderTable = () => {
                                 const book = booksList.find((book) => book._id === item.bookId);
                                 const itemStatus = status[`${order.userId}-${item.bookId}`] || item.status;
                                 return itemStatus === 'Approve' && daysRemaining > 0 ? (
-                                    <div key={itemIndex} className="book-item-approved">
+                                    <div key={`${order._id}-${item.bookId}`} className="book-item-approved">
                                         <p>{item.bookId}</p>
                                         <p>{book?.title || 'Loading...'}</p>
                                         {/* <p className='book-item-authorName'>{book?.author || 'Loading...'}</p> */}

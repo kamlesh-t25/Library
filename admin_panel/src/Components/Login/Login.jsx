@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Login.css';
 import { StoreContext } from '../Context/StoreContext';
 import { toast } from 'react-toastify';
@@ -11,17 +11,27 @@ const Login = ({isVerified,setVerified}) => {
   const [password, setPassword] = useState('');
   const { URL} = useContext(StoreContext);
   const navigate=useNavigate();
+
+  useEffect(()=>{
+    if(localStorage.getItem('adminState')){
+      navigate('/home');
+    }
+  },[])
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     // verifyAdmin(email, password);
-    console.log(email +" : "+password);
+    // console.log(email +" : "+password);
     try {
       const response = await axios.post(`${URL}/library/admins`, { email, password });
       if (response.data.success) {
-        console.log("111");
-        toast.success(response.data.message);
-        setVerified(!isVerified);
+        // console.log("111");
         navigate("/home");
+        toast.success(response.data.message);
+        localStorage.setItem('adminState', 'true');
+        localStorage.setItem('loginTimestamp', new Date().getTime());
+        // setVerified(!isVerified);
       } else {
         console.log("22211");
         toast.error(response.data.message);

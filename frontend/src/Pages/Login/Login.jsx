@@ -3,11 +3,11 @@ import { toast } from 'react-toastify';
 // import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 const Login = ({URL}) => {
     const navigate=useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
     useEffect(() => {
         const storedToken = localStorage.getItem('token');
         if (storedToken) {

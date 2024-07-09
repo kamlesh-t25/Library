@@ -137,3 +137,39 @@ online-library-management/
 - `Step 4:` Initialize the project and install dependencies by running the following commands in your terminal:`npm init -y` and then `npm install`.
 
 - `Step 5:` Start the admin side of elibrary by running the following command in terminal:`npm run dev`.
+
+
+## Project Overview
+
+## Frontend:
+
+- All routes have been protected using a token that is stored in local storage. We use a function that checks for the token in local storage. If the token exists, the function returns the route; otherwise, it redirects to the login page.
+- We have used the toast library to handle notification alert popups.
+- Users have options when they land on the `/` route. They can either log in directly if they are registered users, or they can register if they are new to our platform. A forgot password page is also provided if the user forgets their password.
+- **Sign Up page:** Users must enter their name and institute's email ID to receive an email for OTP verification. The email is sent using the `nodemailer` package. The name and email ID are sent to the backend in an array to match the OTP generated in the backend.
+- **Setup Password page:** Once the OTP is verified, the user is supposed to set a password for their account and register the account.
+- **Reset Password page:** Users are supposed to enter the registered email ID to receive an OTP to reset the password. Once the OTP is verified, the user can set up a new password.
+- **Sign In page:** Once the user has registered successfully, they can log in to the website using their credentials. After a successful login, a token will be stored in local storage so that the next time the user accesses the `/` route, they will be redirected to the home page of the website.
+- **Home Page:** 
+
+
+### Backend:
+We have defined models for users, books, and orders. For the admin panel, we are not using any model. Instead, we are directly connecting our backend to MongoDB to retrieve the required information (email and password) for login, which is defined in "server.js".
+
+The models are located in a folder named "models." Their functions, specifying how they work on particular routes, are defined in the "routes" folder, and the route names are in the "controllers" folder. These components are all combined in "server.js."
+
+The OrderModel is connected to each user via the userId, which is stored as _id in OrderModel. The BookModel is used for updating, deleting, or adding books in the database.
+
+Both Frontend and admin_panel are connected to backend via **URL="http://localhost:4000"** that is provided in context.js file .
+
+### Admin Panel:
+
+- All routes have been protected using a React state hook.
+- We have used the toast library to handle notification alert popups.
+- Admin will log in using the credentials provided. The password will be matched from the database to allow the user to access the dashboard of the admin panel.
+- Users can navigate through the admin panel using a sidebar. They can go to the dashboard, My Store, Add Book, Order Requests, or log out using the logout button, all present under the sidebar of the dashboard.
+- The dashboard is the home page of the admin panel.
+- My Store contains all book cards that are in the database. Each card has the book name, description, author, copies available, and a delete button to remove the book from the database. This page also contains a search bar so that the admin can filter out books based on book title matches.
+- Add Book contains a form through which the admin can add a book to the database so that users can access new books.
+- Order Requests contains book requests made by all users. The admin can reject or accept the user's request to issue the book to the user.
+- The admin will be logged out once the page is refreshed.

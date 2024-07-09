@@ -17,7 +17,7 @@ const Password_reset_setPwd = ({URL}) => {
       e.preventDefault();
       const response=await axios.post(URL+"/library/user/resetPwd_updateUser",{email,password});
       if(response.data.success){
-        navigate('/login');
+        navigate('/');
         toast.success(response.data.message);
         }else {
         console.log(response.data.message);

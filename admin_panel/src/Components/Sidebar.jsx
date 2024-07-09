@@ -13,7 +13,9 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
 
   const logoutHandler=()=>{
     navigate("/");
-    setVerified(!isVerified);
+    localStorage.removeItem('adminState');
+    localStorage.removeItem('loginTimestamp');
+    setVerified(false);
   }
 
   return (
