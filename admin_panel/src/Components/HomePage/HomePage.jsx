@@ -16,6 +16,7 @@ import 'boxicons/css/boxicons.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import './HomePage.css';
+import UserDetails from '../UserDetails/UserDetails.jsx';
 
 const HomePage = ({isVerified,setVerified}) => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
@@ -72,6 +73,7 @@ const HomePage = ({isVerified,setVerified}) => {
           {activeComponent === 'OrderTable' && <OrderTable />}
           {activeComponent === 'AddBook' && <AddBook />}
           {activeComponent === 'Mystore' && <Mystore />}
+          {activeComponent=="UserDetails"  && <UserDetails />}
         </div>
       </div>
     </>

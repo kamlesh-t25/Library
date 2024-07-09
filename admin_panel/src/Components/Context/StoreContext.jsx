@@ -99,7 +99,7 @@ const StoreContextProvider=(props)=>{
     const contextValue={
         URL,
         orders,booksList,deleteBook,
-        getUserName,
+        getUserName,users,
         statusChange,addBook
     }
 

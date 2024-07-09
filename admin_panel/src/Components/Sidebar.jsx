@@ -31,6 +31,12 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Dashboard</span>
           </a>
         </li>
+        <li className={activeItem === 'User Details' ? 'active' : ''}>
+          <a href="#" onClick={() => handleItemClick('User Details', 'UserDetails')}> 
+            <i class='bx bxs-user-detail'></i>
+            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>User Details</span>
+          </a>
+        </li>
         <li className={activeItem === 'My Store' ? 'active' : ''}>
           <a href="#" onClick={() => handleItemClick('My Store', 'Mystore')}>
             <i className="bx bxs-shopping-bag-alt"></i>

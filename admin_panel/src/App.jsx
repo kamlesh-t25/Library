@@ -8,7 +8,11 @@ import Login from './Components/Login/Login.jsx';
 import { ToastContainer } from 'react-toastify';
 
 const App = () => {
-  const [isVerified, setVerified] = useState(false);
+  
+  const initialIsVerified = localStorage.getItem('adminState') === 'true';
+  const [isVerified, setVerified] = useState(initialIsVerified);
+
+  
 
   useEffect(() => {
     const adminState = localStorage.getItem('adminState');
@@ -24,8 +28,10 @@ const App = () => {
         localStorage.removeItem('loginTimestamp');
         setVerified(false);
       }
+    }else{
+      setVerified(false);
     }
-  }, [isVerified]);
+  }, []);
 
   return (
     <>

@@ -1,0 +1,39 @@
+.userDetails-container{
+    margin:30px;
+}
+
+.user-elements{
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+.user-element{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.user-element .deleteUser-button{
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.user-element .deleteUser-button:hover{
+    background-color: tomato;
+    cursor: pointer;
+}
+
+@media (max-width:600px){
+    .user-element .deleteUser-button{
+        width: max-content;
+        /* margin: auto; */
+        padding: 5px;
+        border-radius: 8px;
+    } 
+    .userDetails-container{
+        margin:20px 10px;
+    }
+}

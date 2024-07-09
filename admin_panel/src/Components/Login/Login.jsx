@@ -12,12 +12,12 @@ const Login = ({isVerified,setVerified}) => {
   const { URL} = useContext(StoreContext);
   const navigate=useNavigate();
 
-  useEffect(() => {
-    const adminState = localStorage.getItem('adminState');
-    if (adminState) {
-      navigate('/home');
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   const adminState = localStorage.getItem('adminState');
+  //   if (adminState) {
+  //     navigate('/home');
+  //   }
+  // }, []);
 
 
 
@@ -29,10 +29,11 @@ const Login = ({isVerified,setVerified}) => {
       const response = await axios.post(`${URL}/library/admins`, { email, password });
       if (response.data.success) {
         // console.log("111");
-        toast.success(response.data.message);
-        await localStorage.setItem('adminState', 'true');
-        await localStorage.setItem('loginTimestamp', new Date().getTime());
+        localStorage.setItem('adminState', 'true');
+        localStorage.setItem('loginTimestamp', new Date().getTime());
+        setVerified(true);
         navigate("/home");
+        toast.success(response.data.message);
         // setVerified(!isVerified);
       } else {
         // console.log("22211");
@@ -43,6 +44,11 @@ const Login = ({isVerified,setVerified}) => {
       toast.error("An error occurred while trying to log in.");
     }
   };
+
+  if (localStorage.getItem('adminState')) {
+    navigate('/home'); // Directly navigate if already logged in
+    return null; // or return loading spinner, etc.
+  }
 
   return (
     <>
