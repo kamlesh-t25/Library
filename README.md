@@ -194,6 +194,8 @@ online-library-management/
 
 - We have defined models for users, books, and orders. For the admin panel, we are not using any model. Instead, we are directly connecting our backend to MongoDB to retrieve the required information (email and password) for login, which is defined in "server.js".
 
+- We have defined three models -userModel , orderModel and bookModel.
+
 - The models are located in a folder named "models." Their functions, specifying how they work on particular routes, are defined in the "routes" folder, and the route names are in the "controllers" folder. These components are all combined in "server.js."
 
 - The OrderModel is connected to each user via the userId, which is stored as _id in OrderModel. The BookModel is used for updating, deleting, or adding books in the database.
@@ -203,12 +205,20 @@ online-library-management/
 
 ### Admin Panel:
 
-- All routes have been protected using a React state hook.
+- *For admin access, new users cannot register through the application. Instead, their entries must be manually added to the database before they can log in to the admin panel.*
+
+- Routes are protected using localStorage and state hooks, ensuring a user session duration of 1 hour. Upon login, the timestamp is stored in localStorage. The admin will be automatically logged out either after 1 hour or upon manual logout.
+
 - We have used the toast library to handle notification alert popups.
 - Admin will log in using the credentials provided. The password will be matched from the database to allow the user to access the dashboard of the admin panel.
+
 - Users can navigate through the admin panel using a sidebar. They can go to the dashboard, My Store, Add Book, Order Requests, or log out using the logout button, all present under the sidebar of the dashboard.
+
 - The dashboard is the home page of the admin panel.
 - My Store contains all book cards that are in the database. Each card has the book name, description, author, copies available, and a delete button to remove the book from the database. This page also contains a search bar so that the admin can filter out books based on book title matches.
+
+- We have a sidebar option labeled "User Details" that displays registered user information. Each user item includes a delete button, which will remove all their data from both the OrderModel and UserModel.
+
 - Add Book contains a form through which the admin can add a book to the database so that users can access new books.
+
 - Order Requests contains book requests made by all users. The admin can reject or accept the user's request to issue the book to the user.
-- The admin will be logged out once the page is refreshed.
