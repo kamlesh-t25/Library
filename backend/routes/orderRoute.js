@@ -129,7 +129,10 @@ const deleteUserOrders=async(req,res)=>{
     const {userId}=req.body;
     try {
         let userOrder=await orderModel.findOneAndDelete({userId});
-        res.json({success:true,data:"User Orders deleted"});
+        if(!userOrder){
+            return res.json({success:true,message:"Orders for this user does not exist"})
+        }
+        res.json({success:true,message:"User Orders deleted"});
     } catch (error) {
         console.log(error);
         res.json({success:false,message:"ERROR"});
