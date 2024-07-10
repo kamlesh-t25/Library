@@ -102,6 +102,8 @@ online-library-management/
 
 ## Local Setup
 
+- Make sure you start backend first so you can get data from dataBase in frontend and admin_panel .
+
 ### Frontend:
 
 - `Step 1:` Open your terminal and navigate to the desired directory where you want to place your source code.
@@ -137,6 +139,8 @@ online-library-management/
 - `Step 4:` Initialize the project and install dependencies by running the following commands in your terminal:`npm init -y` and then `npm install`.
 
 - `Step 5:` Start the admin side of elibrary by running the following command in terminal:`npm run dev`.
+
+- Credentials for admin login -> email :- "220010025@iitdh.ac.in" , password : - "123456789"
 
 
 ## Project Overview
@@ -193,6 +197,8 @@ online-library-management/
 ### Backend:
 
 - We have defined models for users, books, and orders. For the admin panel, we are not using any model. Instead, we are directly connecting our backend to MongoDB to retrieve the required information (email and password) for login, which is defined in "server.js".
+
+- We are connecting backend to database using url in "./confi/db.js" and "server.js".
 
 - We have defined three models -userModel , orderModel and bookModel.
 
