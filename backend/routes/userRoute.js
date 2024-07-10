@@ -171,10 +171,6 @@ const resetPwd_EmailSending=async(req,res)=>{
         text:`Your OTP is ${otp}`
     };
 
-        // console.log("email is :",email);
-        // console.log('Email:', process.env.EMAIL);
-        // console.log('Password:', process.env.PASSWORD);
-        // console.log("OTP",otp);
 
         transporter.sendMail(mailOptions, (error, info) => {
             if (error) {
@@ -242,4 +238,27 @@ const deleteUser=async(req,res)=>{
 }
 
 
-export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails,getUsers,resetPwd_EmailSending,resetPwd_otpVerify,resetPwd_updateUserPwd,deleteUser};
+const bookReturnWarningEmail=async(req,res)=>{
+    const {email,delayDays,bookTitle}=req.body;
+    const mailOptions={
+        from: process.env.EMAIL,
+        to:email,
+        subject: 'Book Return Date',
+        text:`Dear User,
+            This is a friendly reminder to return the book titled "${bookTitle}" to our library. Our records show that the book is now overdue by ${delayDays} day(s).
+            We kindly request that you return the book at your earliest convenience to avoid any late fees or further penalties.
+            Thank you for your cooperation.`
+    };
+
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.log('Error:', error); // Log the error
+                return res.json({success: false, message: "Error in sending mail", error: error.message});
+            }
+            res.json({success: true, message: "Reminder sent!"});
+        });
+}
+
+
+export {registerUser,loginUser,verifyOtp,setPassword,getUserDetails,getUsers,resetPwd_EmailSending,resetPwd_otpVerify,resetPwd_updateUserPwd,deleteUser,bookReturnWarningEmail};

@@ -102,7 +102,7 @@ online-library-management/
 
 ## Local Setup
 
-- Make sure you start backend first so you can get data from dataBase in frontend and admin_panel .
+- Make sure you start backend server first so you can get data from dataBase in frontend and admin_panel .
 
 ### Frontend:
 
@@ -205,6 +205,7 @@ online-library-management/
 - The models are located in a folder named "models." Their functions, specifying how they work on particular routes, are defined in the "routes" folder, and the route names are in the "controllers" folder. These components are all combined in "server.js."
 
 - The OrderModel is connected to each user via the userId, which is stored as _id in OrderModel. The BookModel is used for updating, deleting, or adding books in the database.
+- In books data we added one extra field "category" so we can seperate books according to category name.
 
 - Both Frontend and admin_panel are connected to backend via URL="http://localhost:4000" that is provided in context.js file .
 

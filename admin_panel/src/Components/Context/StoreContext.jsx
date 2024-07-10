@@ -42,6 +42,12 @@ const StoreContextProvider=(props)=>{
         return user.name;
     }
 
+    const getUserEmail=async(userId)=>{
+        const user=users.find((e)=>e._id==userId);
+        // console.log(user.name);
+        return user.email;
+    }
+
     const getBooksList=async()=>{
         const response =await axios.get(URL+"/library/books/list");
         // console.log("Response: - "+response.data)
@@ -99,7 +105,7 @@ const StoreContextProvider=(props)=>{
     const contextValue={
         URL,
         orders,booksList,deleteBook,
-        getUserName,users,
+        getUserName,users,getUserEmail,
         statusChange,addBook
     }
 

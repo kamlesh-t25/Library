@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './order.css';
 import { StoreContext } from './Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const OrderTable = () => {
-    const { orders, getUserName, booksList, statusChange } = useContext(StoreContext);
+    const { orders, getUserName, booksList, statusChange,getUserEmail ,URL} = useContext(StoreContext);
     const [userNames, setUserNames] = useState({});
+    const [userEmails,setUserEmail]=useState({});
     const [status, setStatus] = useState({});
 
     useEffect(() => {
@@ -22,6 +25,20 @@ const OrderTable = () => {
         };
 
         fetchUserNames();
+
+        const fetchUserEmails = async () => {
+            let emails = {};
+            for (const order of orders) {
+                if (!userEmails[order.userId]) {
+                    const email = await getUserEmail(order.userId);
+                    if (email) {
+                        emails = { ...emails, [order.userId]: email };
+                    }
+                }
+            }
+            setUserEmail((prevEmails) => ({ ...prevEmails, ...emails }));
+        };
+        fetchUserEmails();
     }, [orders, getUserName]);
 
     const handleChange = (userId, bookId, newStatus) => {
@@ -64,6 +81,16 @@ const OrderTable = () => {
     const hasDelayedReturn = (order) => {
         return order.items.some((item) => item.status === 'Approve' && calculateDaysRemaining(item.updatedAt) <= 0);
     };
+
+    const bookReturnHandler=async(email,delayDays,bookTitle)=>{
+        console.log(email + delayDays + bookTitle);
+        let respo=await axios.post(URL+"/library/user/returnWarning",{email,delayDays,bookTitle});
+        if(respo.data.success){
+            toast.success(respo.data.message);
+        }else{
+            toast.error(respo.data.message);
+        }
+    }
 
     return (
         <div className="table-data">
@@ -149,13 +176,17 @@ const OrderTable = () => {
                                     let daysRemaining = calculateDaysRemaining(item.updatedAt);
                                     daysRemaining = daysRemaining * (-1);
                                     const book = booksList.find((book) => book._id === item.bookId);
+                                    // const userEmail=userEmails[order.userId];
                                     const itemStatus = status[`${order.userId}-${item.bookId}`] || item.status;
-                                    return itemStatus === 'Approve' && daysRemaining > 0 ? (
-                                        <div key={`${order._id}-${item.bookId}`} className="book-item-approved">
+                                    return itemStatus === 'Approve' && daysRemaining >= 0 ? (
+                                        <div key={`${order._id}-${item.bookId}`} className="book-item-delay">
                                             <p>{item.bookId}</p>
                                             <p>{book?.title || 'Loading...'}</p>
                                             <p><span style={{ color: "red" }}>Due from last {daysRemaining} day</span></p>
-                                            <p>Count: {book?.count || 'Loading'}</p>
+                                            {/* <p>Count: {book?.count || 'Loading'}</p> */}
+                                            {/* <p>{userEmails[order.userId]}</p> */}
+                                            <p><button onClick={()=>bookReturnHandler(userEmails[order.userId],daysRemaining,book.title)} className='return-book-warningEmail'>Send Warning</button></p>
+                                            
                                         </div>
                                     ) : null;
                                 })}
