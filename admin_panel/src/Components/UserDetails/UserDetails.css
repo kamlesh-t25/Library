@@ -1,4 +1,4 @@
-.userDetails-container{
+userDetails-container{
     margin:30px;
 }
 
@@ -14,11 +14,21 @@
     align-items: center;
 }
 
+body.dark .userDetails-container{
+    color: white;
+}
+body.dark .deleteUser-button{
+    background-color: #7FFFD4;
+}
+
 .user-element .deleteUser-button{
     width: max-content;
     margin: auto;
-    padding: 10px;
     border-radius: 8px;
+}
+
+.user-element{
+    padding: 10px;
 }
 
 .user-element .deleteUser-button:hover{
@@ -26,14 +36,55 @@
     cursor: pointer;
 }
 
-@media (max-width:600px){
-    .user-element .deleteUser-button{
-        width: max-content;
-        /* margin: auto; */
-        padding: 5px;
-        border-radius: 8px;
-    } 
-    .userDetails-container{
-        margin:20px 10px;
+
+@media (min-width:555px){
+    .deleteUser-button{
+        padding: 10px;
     }
+}
+
+@media (max-width:555px){
+    .userDetails-container{
+        font-size: 15px;
+    }
+    .deleteUser-button{
+        padding: 7px;
+        font-size:10px ;
+    }
+}
+
+@media (max-width:530px){
+    .userDetails-container{
+        font-size: 12px;
+    }
+    .deleteUser-button{
+        padding: 5px;
+        font-size:10px ;
+    }
+}
+
+@media (max-width:425px){
+    .userDetails-container{
+        padding: 0px;
+        margin: 0px;
+    }
+    .user-element{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 2px solid black;
+        border-radius: 20px;
+        padding: 10px;
+        row-gap: 10px;
+        width: 90%;
+    }
+    body.dark .user-element{
+        border: 2px solid white;
+        border-radius: 20px;
+    }
+    .user-element .deleteUser-button {
+        grid-column: span 2;     
+        width: max-content;      
+        padding: 10px;         
+    }
+    
 }

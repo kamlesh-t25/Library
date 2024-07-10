@@ -33,7 +33,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
         </li>
         <li className={activeItem === 'User Details' ? 'active' : ''}>
           <a href="#" onClick={() => handleItemClick('User Details', 'UserDetails')}> 
-            <i class='bx bxs-user-detail'></i>
+            <i className='bx bxs-user-detail'></i>
             <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>User Details</span>
           </a>
         </li>
