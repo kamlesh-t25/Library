@@ -21,6 +21,15 @@ const BooksPage = () => {
 
   const [departments,setDepartments]=useState([]);
 
+  useEffect(() => {
+    const hasRefreshed = sessionStorage.getItem('hasRefreshed');
+
+    if (!hasRefreshed || hasRefreshed !== categoryName) {
+      sessionStorage.setItem('hasRefreshed', categoryName);
+      window.location.reload();
+    }
+  }, [categoryName]);
+
   useEffect(()=>{
     const getDepartmentsName=async()=>{
       const response=await axios.get(URL+`/library/${categoryName}`);
