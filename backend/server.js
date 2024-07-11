@@ -259,7 +259,7 @@ app.get("/library/:category",async(req,res)=>{
     }
 
     // Close the connection
-    await client.close();
+    // await client.close();
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Internal server error' });
@@ -267,7 +267,7 @@ app.get("/library/:category",async(req,res)=>{
 })
 
 
-//we ca not define this route as "/library/getCategories" ..because it will give 404 error because of "/library/:category" route
+//we can not define this route as "/library/getCategories" ..because it will give 404 error because of "/library/:category" route
 app.get("/library/get/categories",async(req,res)=>{
   try {
     // const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -287,7 +287,7 @@ app.get("/library/get/categories",async(req,res)=>{
     }
 
     // Close the connection
-    await client.close();
+    // await client.close();
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' });
