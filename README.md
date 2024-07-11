@@ -219,7 +219,9 @@ online-library-management/
 - We have used the toast library to handle notification alert popups.
 - Admin will log in using the credentials provided. The password will be matched from the database to allow the user to access the dashboard of the admin panel.
 
-- Users can navigate through the admin panel using a sidebar. They can go to the dashboard, My Store, Add Book, Order Requests, or log out using the logout button, all present under the sidebar of the dashboard.
+- Users can navigate through the admin panel using a sidebar. They can go to the dashboard, My Store, Add Book,Order Management( Order Requests,Approved Orders, delayOrders  ) or log out using the logout button, all present under the sidebar of the dashboard.
+
+- In the delayOrders section , a button is provided with each delay book entry, by clicking it you can send a reminder email to that student about book retun.
 
 - The dashboard is the home page of the admin panel.
 - My Store contains all book cards that are in the database. Each card has the book name, description, author, copies available, and a delete button to remove the book from the database. This page also contains a search bar so that the admin can filter out books based on book title matches.

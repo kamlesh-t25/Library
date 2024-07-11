@@ -52,7 +52,7 @@ const Sidebar = ({ isSidebarVisible, setActiveComponent,isVerified,setVerified }
         <li className={activeItem === 'Analytics' ? 'active' : ''}>
           <a href="#" onClick={() => handleItemClick('Analytics', 'OrderTable')}> 
             <i className="bx bxs-doughnut-chart"></i>
-            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Requests</span>
+            <span className={`text ${!isSidebarVisible ? 'hidden' : ''}`}>Order Management</span>
           </a>
         </li>
       </ul>
