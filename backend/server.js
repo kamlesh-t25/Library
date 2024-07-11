@@ -16,14 +16,17 @@ import orderRouter from './controllers/orderController.js';
 const PORT=4000;
 const app=express();
 
+// connectDB();
+
+//we are using this function to avoid timed out..because sometimes server send request to databse before connection
+const startServer=async()=>{
+  await connectDB();
+}
+startServer();
+
 //middleware
 app.use(express.json());
 app.use(cors());
-
-
-connectDB();
-
-
 
 app.get('/',(req,res)=>{
     res.send("Api working");
