@@ -30,6 +30,7 @@
     text-decoration: none;
     /* color: #6f0d0d; */
     font-size: 30px;
+    cursor: pointer;
   }
   
   .logo .icon-size {

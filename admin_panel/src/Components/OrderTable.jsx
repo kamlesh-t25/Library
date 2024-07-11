@@ -41,13 +41,21 @@ const OrderTable = () => {
         fetchUserEmails();
     }, [orders, getUserName]);
 
-    const handleChange = (userId, bookId, newStatus) => {
+    const handleChange =async (userId, bookId, newStatus) => {
+        if(newStatus=="Decline"){
+            let respo1=await axios.post(URL+"/library/orders/declineOrder",{userId,bookId});
+            if(respo1.data.success){
+                toast.success(respo1.data.message);
+            }else{
+                toast.error(respo1.data.message);
+            }
+        }else{
         setStatus((prevStatus) => ({
             ...prevStatus,
             [`${userId}-${bookId}`]: newStatus,
         }));
-        // console.log(`${userId}:${bookId}:${newStatus}`);
         statusChange(userId, bookId, newStatus);
+        }
     };
 
     const isAllApproved = (order) => {
@@ -126,6 +134,7 @@ const OrderTable = () => {
                                             >
                                                 <option value="Pending">Pending</option>
                                                 <option value="Approve">Approve</option>
+                                                <option value="Decline">Decline</option>
                                             </select>
                                         </div>
                                     ) : null;

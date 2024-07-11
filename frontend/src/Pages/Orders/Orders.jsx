@@ -35,7 +35,7 @@ const Orders = () => {
   );
 
   return (
-  <>  
+  <div className='order-footer-container'>  
     <div className='ordersContainer'>
       <Navbar />
       <div className="bookCard order-titles" style={{border: "2px solid black", background: "green"}}>
@@ -63,8 +63,8 @@ const Orders = () => {
         })
       }
     </div>
-    <Footer />
-  </>
+    {/* <Footer /> */}
+  </div>
   );
 }
 

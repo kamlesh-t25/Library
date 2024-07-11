@@ -87,7 +87,7 @@ const changeReturnStatus = async (req, res) => {
         }
 
         // Update the status of the specific book to "Returned"
-        order.items[itemIndex].status = "Returned";
+        // order.items[itemIndex].status = "Returned";
 
         // Remove the book from the items array
         order.items = order.items.filter(item => item.bookId !== bookId);
@@ -140,5 +140,27 @@ const deleteUserOrders=async(req,res)=>{
 }
 
 
+const declineBookOrder=async(req,res)=>{
+    const {userId,bookId}=req.body;
+    try {
+        const order=await orderModel.findOne({userId,"items.bookId":bookId});
 
-export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus,deleteUserOrders};
+        if (!order) {
+            return res.status(404).json({ success: false, message: "Order or book not found" });
+        }
+
+        order.items = order.items.filter(item => item.bookId !== bookId);
+
+        await order.save();
+
+        res.json({success:true,message:"Book order deleted successfully!"});
+
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:"Error in declining book!"});
+    }
+}
+
+
+
+export {requestBook,getOrders,getUserOrder,changeStatus,changeReturnStatus,deleteUserOrders,declineBookOrder};
