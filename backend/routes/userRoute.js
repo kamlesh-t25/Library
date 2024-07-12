@@ -49,7 +49,7 @@ const registerUser=async(req,res)=>{
         from: process.env.EMAIL,
         to:email,
         subject: 'OTP Verification',
-        text:`Your OTP is ${otp}`
+        text:`OTP for account registration is ${otp}`
     };
 
         // console.log("email is :",email);
@@ -168,7 +168,7 @@ const resetPwd_EmailSending=async(req,res)=>{
         from: process.env.EMAIL,
         to:email,
         subject: 'OTP Verification',
-        text:`Your OTP is ${otp}`
+        text:`OTP for reset password is ${otp}`
     };
 
 

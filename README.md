@@ -143,6 +143,12 @@ online-library-management/
 - Credentials for admin login -> email :- "220010025@iitdh.ac.in" , password : - "123456789"
 
 
+## Demo Videos
+
+You can watch the demo videos of the eLibrary project here: 
+- https://drive.google.com/drive/folders/165Ta1-MH3ZhUEslp8cndHPsutpWftXKz?usp=sharing
+
+
 ## Project Overview
 
 ## Frontend:
