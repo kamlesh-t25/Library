@@ -97,7 +97,10 @@ online-library-management/
 ```
 
 
+## Demo Videos
 
+You can watch the demo videos of the eLibrary project here: 
+- https://drive.google.com/drive/folders/165Ta1-MH3ZhUEslp8cndHPsutpWftXKz?usp=sharing
 
 
 ## Local Setup
@@ -143,11 +146,6 @@ online-library-management/
 - Credentials for admin login -> email :- "220010025@iitdh.ac.in" , password : - "123456789"
 
 
-## Demo Videos
-
-You can watch the demo videos of the eLibrary project here: 
-- https://drive.google.com/drive/folders/165Ta1-MH3ZhUEslp8cndHPsutpWftXKz?usp=sharing
-
 
 ## Project Overview
 
@@ -182,12 +180,13 @@ You can watch the demo videos of the eLibrary project here:
   - Divided into Navbar, Header, Category Area, and Footer.
   - **Navbar:** Contains website name, cart, orders, user profile icon, and logout button.
   - **Header:** Displays a welcome message with the user's name and an image.
-  - **Category Area:** Displays category cards with an "Explore Category" button leading to the Book Page.
+  - **Category Area:** Displays category cards with an "Explore Category" button leading to the Book Page,where books corresponding to that category will be displayed.
   - **Footer:** Institute information and communication details, including weather information.
 
 - **Book Page:** 
   - Displays books based on selected categories.
   - Filter cards for sub-categories and a search bar for text-based filtering.
+  - A serach bar is also available that can be used to get books via book title.
   - Each book card includes details like title, description, author, copies available, and an "Add to Cart" button.
 
 - **Cart Page:** 
@@ -225,7 +224,9 @@ You can watch the demo videos of the eLibrary project here:
 - We have used the toast library to handle notification alert popups.
 - Admin will log in using the credentials provided. The password will be matched from the database to allow the user to access the dashboard of the admin panel.
 
-- Users can navigate through the admin panel using a sidebar. They can go to the dashboard, My Store, Add Book,Order Management( Order Requests,Approved Orders, delayOrders  ) or log out using the logout button, all present under the sidebar of the dashboard.
+- Users can navigate through the admin panel using a sidebar. They can go to the User Details , dashboard, My Store, Add Book,Order Management( Order Requests,Approved Orders, delayOrders  ) or log out using the logout button, all present under the sidebar of the dashboard.
+
+- In user details section,we have provided a button with every user detail using that admin can delete a particular user completely.
 
 - In the delayOrders section , a button is provided with each delay book entry, by clicking it you can send a reminder email to that student about book retun.
 
