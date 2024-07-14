@@ -6,8 +6,6 @@ const addBook=async(req,res)=>{
     const newBook=new bookModel({
         title,category,description,author,genre,department,count,vendor,vendor_id,publisher,publisher_id
     })
-
-    
     //if book already exist
     const foundBook=await bookModel.findOne({title});
     if(foundBook){
@@ -21,7 +19,6 @@ const addBook=async(req,res)=>{
         console.log(error);
         res.json({success:false,message:"Error"});
     }
-
 }
 
 const listBooks=async(req,res)=>{
