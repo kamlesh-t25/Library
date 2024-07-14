@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import './BookCard.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus ,faMinus} from '@fortawesome/free-solid-svg-icons';
 import { StoreContext } from '../../Components/Context/StoreContext';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const BookCard = (props) => {
-  const { addToCart ,deleteBook} = useContext(StoreContext);
+  const {URL, addToCart ,deleteBook,getBooksList} = useContext(StoreContext);
 
   const handleCart = (itemId) => {
     deleteBook(itemId);
@@ -12,6 +16,26 @@ const BookCard = (props) => {
       addToCart(itemId);
     }
   };
+
+  const increaseCountHandler=async(id)=>{
+    const response=await axios.post(URL+"/library/books/increaseCount",{id});
+    if(response.data.success){
+      toast.success(response.data.message);
+      getBooksList();
+    }else{
+      toast.error(response.data.message);
+    }
+  }
+
+  const decreaseCountHandler=async(id)=>{
+    const response=await axios.post(URL+"/library/books/update-count",{id});
+    if(response.data.success){
+      toast.success(response.data.message);
+      getBooksList();
+    }else{
+      toast.error(response.data.message);
+    }
+  }
 
   return (
     <>
@@ -29,7 +53,7 @@ const BookCard = (props) => {
           </div>
         </div>
         <h4 className="card-subtitle mb-2 ">Author: {props.author}</h4>
-        <h4 className="card-subtitle mb-2 ">Copies Available: {props.count}</h4>
+        <h3 className="card-subtitle mb-2 ">Count: {props.count} <span><FontAwesomeIcon onClick={()=>increaseCountHandler(props.id)} className='button' icon={faPlus} /> <FontAwesomeIcon onClick={()=>decreaseCountHandler(props.id)} className='button' icon={faMinus} /></span> </h3>
         <div className="thirdElement align-middle text-center">
           <button
             onClick={() => handleCart(props.id)}

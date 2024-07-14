@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import 'boxicons/css/boxicons.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './index.css';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import Login from './Components/Login/Login.jsx';
