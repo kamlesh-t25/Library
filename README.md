@@ -6,18 +6,19 @@ A comprehensive solution for managing an online library, including features for 
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Technologies Used](#technologies-used)
+- [Technologies, Libraries and Packages Used](#technologies-libraries-and-packages-used)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-  - [Running the Application](#running-the-application)
-  - [Testing](#testing)
+- [Local Setup](#local-setup)
+  - [Frontend Setup](#frontend)
+  - [Backend Setup](#backend)
+  - [Admin-Panel Setup](#admin-panel)
 - [Project Structure](#project-structure)
-- [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Project Overview](#project-overview)
+  - [Frontend](#frontend-overview)
+  - [Backend](#backend-overview)
+  - [Admin Panel](#admin-panel-overview)
+- [Demo Videos](#demo-videos)
+- [Contact Us](#contact-us)
 
 ## Introduction
 
@@ -60,7 +61,7 @@ Welcome to the Online Library Management Website, a comprehensive solution desig
 
 ### DATABASE :
 
-- `MongoDB
+- `MongoDB`
 
 ## Getting Started
 
@@ -100,7 +101,7 @@ online-library-management/
 ## Demo Videos
 
 You can watch the demo videos of the eLibrary project here: 
-- https://drive.google.com/drive/folders/165Ta1-MH3ZhUEslp8cndHPsutpWftXKz?usp=sharing
+- [Demo Videos](https://drive.google.com/drive/folders/165Ta1-MH3ZhUEslp8cndHPsutpWftXKz?usp=sharing)
 
 
 ## Local Setup
@@ -238,3 +239,14 @@ You can watch the demo videos of the eLibrary project here:
 - Add Book contains a form through which the admin can add a book to the database so that users can access new books.
 
 - Order Requests contains book requests made by all users. The admin can reject or accept the user's request to issue the book to the user.
+
+## Contact Us
+
+### Team Name: MASTAN_GANG
+
+#### Team Members:
+
+- Kavish Yadav (220010027@iitdh.ac.in)
+- Kamlesh Thakkar (220010025@iitdh.ac.in)
+- Vivek Sharma (220150014@iitdh.ac.in)
+- Mayank Narkar (220010033@iitdh.ac.in)
