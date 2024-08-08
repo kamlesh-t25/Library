@@ -27,11 +27,14 @@ Welcome to the Online Library Management Website, a comprehensive solution desig
 ## Features
 
 - User authentication and authorization
-- Book catalog management (add, update, delete books)
+- Book catalog management (add, update, delete books) by admin
 - Book borrowing and returning system
-- Search functionality
+- Book Filter by Filter Cards and Search Bar functionality
 - User account management
 - Admin dashboard
+- Return Reminder Email on book delay by admin 
+- User Request Managment (approve, decline) by admin
+- Alter book count feature added in admin panel
 
 
 ## Technologies, Libraries and Packages Used

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 export const StoreContext=createContext(null);
 
 const StoreContextProvider=(props)=>{
-    const URL="http://localhost:4000";
+    const URL=import.meta.env.VITE_BACKEND_URL;
 
     const [orders, setOrders] = useState([]);
     const [booksList,setBooksList]=useState([]);
