@@ -38,7 +38,7 @@ const Cart = () => {
     handleClosePopup();
   };
 
-  if(cartData.element==0){
+  if(cartData.length==0 || booksList.length==0){
     return ( <h2>No cart item....</h2> )
   }
 
