@@ -43,10 +43,10 @@ const Cart = () => {
       <Navbar />
       <div className='cartContainer'>
         {booksList.map((element, index) => {
-          if (cartData[element._id] > 0) {
+          if (cartData[element?._id] > 0) {
             return (
               <div className='parentDiv' key={index} onClick={() => handleProductClick(element)}>
-                <CartBookCard id={element._id} title={element.title} description={element.description} />
+                <CartBookCard id={element?._id} title={element?.title} description={element?.description} />
               </div>
             );
           }
