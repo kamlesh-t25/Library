@@ -14,7 +14,7 @@ const Userinfo = () => {
     const {userName,userEmail}=useContext(StoreContext);
     const navigate=useNavigate();
     return (
-        <>
+        <div>
             {/* <Navbar/> */}
             <div className='mainDivision'>
 
@@ -32,7 +32,7 @@ const Userinfo = () => {
             </div>
             </div>
             <Footer />
-        </>
+        </div>
     );
 };
 
