@@ -6,7 +6,7 @@ import React, { useContext, useState } from 'react';
 import { StoreContext } from '../../Context/StoreContext';
 import CartBookCard from '../../Components/CartBookCard/CartBookCard.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHourglass2, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Cart.css';
 import Navbar from '../../Components/Navbar/Navbar.jsx';
 import Footer from '../../Components/Footer/Footer.jsx';
@@ -37,6 +37,10 @@ const Cart = () => {
     requestBook(itemId);
     handleClosePopup();
   };
+
+  if(cartData.element==0){
+    return ( <h2>No cart item....</h2> )
+  }
 
   return (
     <div className='cart-navbar'>
