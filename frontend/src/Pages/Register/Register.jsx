@@ -15,7 +15,8 @@ const Register = ({URL}) => {
 
     const validateEmail = (email) => {
         const emailPattern = /^\d+@iitdh\.ac\.in$/;
-        return emailPattern.test(email);
+        // return emailPattern.test(email);
+        return true;
     };
 
 
